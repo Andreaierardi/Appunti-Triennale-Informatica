@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<accounts>
+
+<account username="daniele.codetta" password="dcr123.," attivo="true" tipo="docente"/>
+<account username="luigi.portinale" password="lp123.," attivo="true" tipo="docente"/>
+<account username="paolo.terenziani" password="pt123.," attivo="true" tipo="docente"/>
+<account username="massimo.canonico" password="mc123.," attivo="true" tipo="docente"/>
+<account username="attilio.giordana" password="ag123.," attivo="true" tipo="docente"/>
+<account username="paolo.paiuzzi" password="pp123.," attivo="true" tipo="segretario"/>
+<account username="gianluca.furlan" password="gf123.," attivo="true" tipo="segretario"/>
+<account username="20021037" password="123.," attivo="true" tipo="studente"/>
+<account username="20022162" password="123.," attivo="true" tipo="studente"/>
+<account username="20020572" password="123.," attivo="true" tipo="studente"/>
+<account username="20019238" password="123.," attivo="true" tipo="studente"/>
+<account username="20018222" password="123.," attivo="true" tipo="studente"/>
+
+</accounts>
+
+
+
+

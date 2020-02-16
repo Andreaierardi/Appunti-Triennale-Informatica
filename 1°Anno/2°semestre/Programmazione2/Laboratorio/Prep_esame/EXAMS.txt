@@ -1,0 +1,15 @@
+Codice Corso: 5030
+Voto: 20
+Matricola: 2323232
+Lode: 1835888451
+
+Codice Corso: 9999
+Voto: 28
+Matricola: 3232
+Lode: 678651244
+
+Codice Corso: 10000
+Voto: 21
+Matricola: 23232
+Lode: 1348221507
+

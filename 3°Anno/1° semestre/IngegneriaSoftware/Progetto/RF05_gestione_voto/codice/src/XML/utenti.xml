@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<utenti>
+
+<utente nome="Daniele" cognome="Codetta" nascita="22/11/1977" email="daniele.codetta@uniupo.it" telefono="0131360339"
+        username="daniele.codetta" qualifica="ricercatore" anno="" CdL=""/>
+<utente nome="Luigi" cognome="Portinale" nascita="01/01/1965" email="luigi.portinale@uniupo.it" telefono="0131360101"
+        username="luigi.portinale" qualifica="ordinario" anno="" CdL=""/>
+<utente nome="Paolo" cognome="Terenziani" nascita="01/01/1965" email="paolo.terenziani@uniupo.it" telefono="0131360102"
+        username="paolo.terenziani" qualifica="ordinario" anno="" CdL=""/>
+<utente nome="Massimo" cognome="Canonico" nascita="07/11/1977" email="massimo.canonico@uniupo.it" telefono="0131360103"
+        username="massimo.canonico" qualifica="ricercatore" anno="" CdL=""/>
+<utente nome="Attilio" cognome="Giordana" nascita="01/01/1950" email="attilio.giordana@uniupo.it" telefono="0131360104"
+        username="luigi.portinale" qualifica="ordinario" anno="" CdL=""/>
+<utente nome="Paolo" cognome="Paiuzzi" nascita="01/01/1970" email="paolo.paiuzzi@uniupo.it" telefono="0131360300"
+        username="paolo.paiuzzi" qualifica="responsabile" anno="" CdL=""/>
+<utente nome="Gianluca" cognome="Furlan" nascita="01/01/1970" email="gianluca.furlan@uniupo.it" telefono="0131360301"
+        username="gianluca.furlan" qualifica="impiegato" anno="" CdL=""/>
+<utente nome="Pamela" cognome="Fava" nascita="01/01/1997" email="20021037@studenti.uniupo.it" telefono="3330001111"
+        username="20021037" qualifica="" anno="3" CdL="Informatica"/>
+<utente nome="Emanuele" cognome="Barison" nascita="01/01/1997" email="20022162@studenti.uniupo.it" telefono="3330001112"
+        username="20022162" qualifica="" anno="3" CdL="Informatica"/>
+<utente nome="Daniele" cognome="Gambera" nascita="01/01/1997" email="20020572@studenti.uniupo.it" telefono="3330001113"
+        username="20020572" qualifica="" anno="3" CdL="Informatica"/>
+<utente nome="Marco" cognome="Rizzi" nascita="01/01/1997" email="20019238@studenti.uniupo.it" telefono="3330001114"
+        username="20019238" qualifica="" anno="3" CdL="Informatica"/>
+<utente nome="Alessio" cognome="Famiani" nascita="01/01/1997" email="20018222@studenti.uniupo.it" telefono="3330001115"
+        username="20018222" qualifica="" anno="3" CdL="Informatica"/>
+
+</utenti>
+
+
+
+

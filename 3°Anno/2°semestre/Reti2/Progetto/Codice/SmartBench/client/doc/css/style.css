@@ -1,0 +1,72 @@
+/* 
+    Created on : 27-ago-2015, 16.35.59
+    Author     : Alessandro Gallina <alessandro.gallina88@hotmail.it>
+*/
+html, body {
+    height: 100%;
+	overflow-y: hidden;
+}
+
+.container-fluid, .container-fluid > .row, .main, #content-block {
+    height: 100%;
+}
+
+#BoardConfig {
+    height: 90%;
+    overflow-y: hidden;
+}
+
+.main {
+    margin: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+.main {
+    padding: 20px;
+    overflow-y: hidden;
+}
+
+#BoardConfig .list-group-item {
+    cursor: pointer;
+}
+
+#BoardConfig .list-group-item:last-child {
+    border-bottom: 0px none;
+}
+
+#BoardConfig .list-group {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#BoardConfig .list-group, #ScheduleActionScheduleForm .list-group, #RuleRuleForm .list-group {
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+	box-shadow:none;
+}
+
+.device-installed {
+    margin: 0px;
+    min-height: 163px;
+}
+
+.tab-pane .thumbnail {
+    border: 0px;
+}
+
+.tab-pane .thumbnail img {
+	height:240px;
+}
+
+.device-category {
+    width: 125px;
+    display: block;
+    float: left;
+}
+
+#message .alert{
+	width:98%;
+	margin-left:1%;
+}

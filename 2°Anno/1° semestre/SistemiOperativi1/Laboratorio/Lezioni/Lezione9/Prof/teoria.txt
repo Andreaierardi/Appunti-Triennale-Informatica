@@ -1,0 +1,213 @@
+===============Tecnica produttore-consumatore con i semafori==============
+
+Serve a distrubuire il lavoro da fare a diversi threads.
+Avere 16 core e un programma sequenziale non ha senso. La cosa non è semplice: bisogna dare un tot lavoro ad ogni thread. Finito il thread deve essere in attesa che anche gli altri abbinao finito. Il problema si divide ma bisogna dividerlo in parti uguali in modo da utilizzare al massimo tutti i threads. Ci vuole una sincronizzazione che viene creata dai semafori.
+EX--> Input numero threads e contare i primi e sommarli
+Produttore--> legge numeri dal file
+Consumatore--> prende i numeri e vede se sono primi
+
+Prima di tutto inizializzazione mutex e semafori
+-- Apertura file e legge numero con fscanf
+-- Se metto threads == 0, nessun thread mi aiuta quindi lo deve fare il processo principale
+-- Abbiamo un buffer di dimentsione 10 (come costante in define)
+-- Se legge dal file delle stringhe al buffer dovrò passare delle stringhe (quindi puntatori)
+-- Array di numeri deve essere visibile sia da produttore, sia da consumatore. Il buffer è definito
+-- Struttura dati per passare il puntatore al buffer
+cindex e pindex --> indici di lavoro per produttori e consumatori
+c => indice consumatore -- p => indice produttore
+
+Quando consumatore legge numero, incrementa c index di uno e viene prelevato valore dalla cella. Prossimo consumatore andrà a cerca in cindex+1 
+Se produttore deve scrivere un nuovo numero, verrà scritto nella posizione appena consumata dal consumatore. BUFFER CIRCOLARE. cindex segue sempre pindex
+Produttore deve sempre essere davanti e non deve occupare zone di memoria non ancora lette dal consumatore.
+-- Se ho dimensione 4 -> *sem_free_slots = 4 perchè ho 4 spazi liberi 
+-- Se ho dimensione 4 -> *sem_data_items = 0 perchè non ho oggetti all'interno
+Ogni volta che un consumatore legge oggetto sul buffer e lo copia in una zona privata per lavorarci, dirà che c'è uno slot libero in più e un item in meno.
+
+Ci sono però devi vincoli
+==> se gli slot liberi sono 0, il produttore si deve fermare. Deve aspettare che consumatore liberi spazio nel buffer.
+==> Consumatore deve essere in attesa se data_item = 0, perchè non può lavorare sul buffer vuoto.
+
+Semaforo ha un valore intero, se sem  > 0 non c'è attesa e il thread va avanti, se sem = 0 thread aspetta che il valore venga incrementato.
+--> mutex_consumer devo usarlo quando accedono e cambiano il valore degli index
+
+______
+Inizializzazione semafori
+
+man sem_init 
+---------------------------
+       #include <semaphore.h>
+
+       int sem_init(sem_t *sem, int pshared, unsigned int value);
+
+       Link with -pthread.
+
+DESCRIPTION
+       sem_init()  initializes the unnamed semaphore at the address pointed to
+       by sem.  The value argument specifies the initial value for  the  sema‐
+       phore.
+
+       The  pshared  argument indicates whether this semaphore is to be shared
+       between the threads of a process, or between processes.
+
+       If pshared has the value 0, then the semaphore is  shared  between  the
+       threads  of  a  process,  and should be located at some address that is
+       visible to all threads (e.g., a global variable, or  a  variable  allo‐
+       cated dynamically on the heap).
+
+-------------------------
+Semaforo slot liberi
+
+e = sem_init(&sem_free_slots,0 , Buf_size);
+assert(e == 0);
+
+Semaforo item
+e = sem_init(&sem_free_items,0 , 0);
+assert(e == 0);
+
+--> ora devo creare threads consumatori
+for (int i = 0 ; i <p ; i++)
+{
+	a[i].buffer = buffer;
+	a[i].cindex = &cindex;
+	a[i].mutex_consumer = &mute_consumer;
+	a[i].sem_data_items = &sem_data_items;
+	a[i].sem_free_slots = &sem_free_slots;
+	e = phtread_create (&t[i], NULL, tbody, (void *) &a[i]);
+	assert(e==0);	
+}
+
+-- SI CREANO THREAD MA DEVONO ASPETTARE CHE IL PRODUTTORE SCRIVA SUL BUFFER
+
+-> Codice produttore (processo padre nel main sotto if p==0)
+================
+man sem_wait()
+       #include <semaphore.h>
+
+       int sem_wait(sem_t *sem);
+
+       int sem_trywait(sem_t *sem);
+
+       int sem_timedwait(sem_t *sem, const struct timespec *abs_timeout);
+
+       Link with -pthread.
+
+   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):
+
+       sem_timedwait(): _POSIX_C_SOURCE >= 200112L
+
+DESCRIPTION
+       sem_wait()  decrements (locks) the semaphore pointed to by sem.  If the
+       semaphore's value is greater than zero, then  the  decrement  proceeds,
+       and  the function returns, immediately.  If the semaphore currently has
+       the value zero, then the call blocks until either it  becomes  possible
+       to  perform the decrement (i.e., the semaphore value rises above zero),
+       or a signal handler interrupts the call.
+
+================
+else
+{
+  e = sem_wait(&sem_free_slots);
+  assert(e==0);
+  buffer[pindex] = n;
+  pindex = (pindex+1)%Buf_size;
+  e = sem_post(&sem_data_items);
+  assert(e==0);
+}
+post --> funzione atomica che incrementa di 1 il semaforo.
+
+=================
+man sem_post
+       #include <semaphore.h>
+
+       int sem_wait(sem_t *sem);
+
+       int sem_trywait(sem_t *sem);
+
+       int sem_timedwait(sem_t *sem, const struct timespec *abs_timeout);
+
+       Link with -pthread.
+
+   Feature Test Macro Requirements for glibc (see feature_test_macros(7)):
+
+       sem_timedwait(): _POSIX_C_SOURCE >= 200112L
+
+DESCRIPTION
+       sem_wait()  decrements (locks) the semaphore pointed to by sem.  If the
+       semaphore's value is greater than zero, then  the  decrement  proceeds,
+       and  the function returns, immediately.  If the semaphore currently has
+       the value zero, then the call blocks until either it  becomes  possible
+       to  perform the decrement (i.e., the semaphore value rises above zero),
+       or a signal handler interrupts the call.
+
+=================
+
+Body consumatore
+{
+   dati *a = (dati*) arg;
+   while (true)
+	{
+		int e = sem_wait(&sem_data_items);
+  		assert(e==0);
+
+		pthrad_mutex_lock(a->mutex_consumer);
+  		int n =	a->buffer[*(a->cindex)];
+		*(a->cindex) = *(a->cindex) +1);
+		pthrad_mutex_unlock(a->mutex_consumer);
+
+  		e = sem_post(&sem_free_slots); //Ho letto un valore nel buffer e quindi c'è un posto libero in più
+   		assert(e==0);
+		if (primo(n))
+		{
+		 a->quanti +=1;
+		 a->somma += n;
+		}
+	}
+	pthread_exit(NULL);
+}
+
+
+===> CICLO INFINITO --> il problema è che non c'è una break per fermare il while. Tutti i thread consumatori si fermeranno alla wait.  
+-- Variabile booleana finito --> non va bene
+-- a-> quanti e a->somma condivisi e poi si uccidono i threads. Si rischia di uccidere threads che devono ancora finire.
+NO!
+
+1° SOLUZIONE)
+Più semplice, se i numeri sul buffer sono tutti positivi. Per terminare il produttore potrebbe mettere devi valori negativi in modo tale che il consumatore sappia che il produttore ha finito
+Inserisco tra assert e if (primo(n))
+if (n<0) break;
+
+//Segnalo terminazione --> inserisco dopo codice padre
+for (int i = 0 ; i<p ; i++)
+{
+	e = pthread_join(t[i],NULL);
+	if (e==0 )
+		{
+		fprintf(..);
+		tot_primi += ..;
+		tot_somma += ..;
+}
+
+2° SOLUZIONE)
+Usare una versione della wait in cui si mette un tempo limite all'attesa. --> se dopo un secondo non ricevo segnale dalla wait allora rilascio l'attesa
+
+
+===NB
+Se semaforo è due, due consumatori andranno a modificare cindex (per questo abbiamo bisogno del riferimento) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

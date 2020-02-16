@@ -1,0 +1,75 @@
+.main
+.var
+i
+b
+.end-var
+
+	BIPUSH 0
+	ISTORE i
+
+	
+	
+ciclo1:
+	ILOAD i
+	BIPUSH 0x30
+	IADD
+	OUT
+	BIPUSH 32
+	OUT 
+	GOTO ciclo
+
+
+ciclo2:
+	ILOAD i
+  	BIPUSH 55
+	IADD
+	OUT
+	BIPUSH 32
+	OUT
+	GOTO ciclo
+	
+
+ciclo:
+
+               // stampa "HELLO WORLD!"
+    BIPUSH 0x48 // H
+    OUT         // stampa top-of-stack
+    BIPUSH 0x45 // E
+    OUT         // stampa top-of-stack
+    BIPUSH 0x4C // L
+    OUT         // stampa top-of-stack
+    BIPUSH 0x4C // L
+    OUT         // stampa top-of-stack
+    BIPUSH 0x4F // O
+    OUT         // stampa top-of-stack
+    BIPUSH 32   // spazio
+    OUT         // stampa top-of-stack
+    BIPUSH 0x57 // W
+    OUT         // stampa top-of-stack
+    BIPUSH 0x4F // O
+    OUT         // stampa top-of-stack
+    BIPUSH 0x52 // R
+    OUT         // stampa top-of-stack
+    BIPUSH 0x4C // L
+    OUT         // stampa top-of-stack
+    BIPUSH 0x44 // D
+    OUT         // stampa top-of-stack
+    BIPUSH 0x21 // !
+    OUT         // stampa top-of-stack
+    IINC i 1
+    BIPUSH 0x0A //
+    OUT         // stampa newline
+
+    ILOAD i
+    BIPUSH 10
+    ISUB
+    IFLT ciclo1  // until i < 10 (ripeti per 10 volte)
+    
+    ILOAD i
+    BIPUSH 16
+    ISUB
+    IFLT ciclo2
+
+    HALT
+
+.end-main

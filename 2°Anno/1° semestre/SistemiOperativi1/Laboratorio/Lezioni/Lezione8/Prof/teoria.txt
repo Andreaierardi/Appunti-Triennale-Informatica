@@ -1,0 +1,109 @@
+Introduzione dei semafori -- Mutex
+
+Calcoliamo la somma dei numeri primi con due paramentri 5 e 1000. Il primo determina il numero di threads e 1000 il numero di numeri da calcolare.
+Definiamo una struttura dati con dati -- inizio, fine , quanti , (long) somma.
+----------------
+Nel body
+quanti = 0 
+somma = 0
+ciclo for in cui scorro da inizio a fine --> inizio è il numero da cui il thread deve partire e fine quando finire (1, 200 -- 201, 400 -- 401 , 600)
+se primo == true --> quanti ++ e somma += j;
+---------------
+Variabile globale non utilizzabile poichè vengono continuamente modificate. 
+Attesa la terminazione del threah--
+Ciclo for in cui inserire la join per l'attesa di un thread alla volta.
+Quanti viene incrementato e somma incrementato un thread alla volta.
+Non si può utilizzare la perror poichè è una variabile globale --> verrebbe modificata continuamente alla chiamata dei threads
+--------------
+Aggiungo variabile int *tabella= malocc (sizeof(int )* DIM_TAB) -- messi = 0   --> non vogliamo usare variabili globali 
+Ogni thread devo passare la tabella con una data dimensione 
+argomenti[i].tab = tabella;  --> aggiungo campi tab e messi
+argomenti[i].messi = messi; --> non va bene, ogni thread avrà un valore messi diverso
+QUINDI:
+argomenti[i].pmessi = &messi;  --> passo un puntatore ad un intero in modo tale che ognuno abbiamo un puntatore alla stessa zona di memoria
+In tab non si fa lo stesso discorso perchè un array è già un puntatore alla zona di memoria.
+NB. Voglio creare un'unica tabella condivisa da ogni thread
+
+MODIFICO BODY e aggiungo  --> pmessi è un puntatore al numero messi in memoria
+arg ->tab[*(arg->pmessi)] = j;
+*(arg->pmessi) += 1;
+
+AGGIUNGO PRINT FINALE
+//ricalcolo somma dei primo guardando la tabella
+somma = 0
+for ( int i = 0 ; i < messi ; i++)
+	somma + = tabella[i];
+fprintf(stderr, "Dentro la tabella trovati %d primi con somma %ld\n",messi,somma);
+-------------
+CREARE MUTEX
+aggiungo capo phtread_mutex_t *pmutex_tabella alla struct
+argomenti[i].mutex_tabella = &mutex_tabella;
+
+sotto int messi = 0  aggiungo phread_mutex_t mutex_tabella; Devo dichiararlo e posso inizializzarlo con una 'init' oppure passando un puntatore mutex ad una struttura dati
+phthread_mutex_t mutex_tabella = PTHREAD_MUTEX_INITIALIZER --> in questo modo è creato il mutex e inizializzato dal primo thread
+
+-- man pthread_mutex_lock --> aspetta finchè il mutex non è stato riaperto
+
+int e = pthread_mutex_lock(arg->pmutex_tabella);
+assert(e==0);
+
+sono sicuro che un thread sta lavorando in zona critica da solo. 
+
+int e = pthread_mutex_unlock(arg->pmutex_tabella); --> devo sbloccare il mutex dopo che ho effettuato le operazioni in tabella condivisa
+Se inserisco una 'unlock' già inizialmente trasformo da parallelelo a sequenziale --> L'OBIETTIVO E' IL PARALLELISMO NEI MUTEX
+
+--- PRIMA DELLA PRINT FINALE -- 
+e = phthread_mutex_destroy(&mutex); --> in questo modo evito errori in chiusura ( magari c'è un mutex ancora attivo o un errore di sincronizzazione tra i thread)
+assert (e==0);
+
+I MUTEX DA SOLI NON BASTANO --> C'È BISOGNO DEI SEMAFORI
+---------------------------------------
+I SEMAFORI
+
+EX 5 thread che verificano se un numero è primo , suddivisione del lavoro ?
+
+Thread principale scrive numeri su array e i thread secondari sono in grado di prendere un numero alla volta per verificare se un numero è primo.
+Threads secondari devo prendere un numero SOLO quindi devo utilizzare un mutex per accedere all'array.
+Legge primo numero, sblocca mutex e comincia a lavorare--2° thread sblocca prende secondo numero e verifica se primo. Se lo è lo scrive da qualche parte.
+Ognuno di loro cercano di accedere ai numeri sull'array ma è il MUTEX che fa da scheduler. 
+La cosa meno semplice è la sincronizzazione tra il thread principale(produttore) e gli altri (consumatori).
+PROBLEMA --> con 5 miliardi di numeri occupo troppa memoria.
+SOLUZIONE --> Array definito da 100 posizioni. Il produttore deve bloccare inserimento appena buffer è pieno. 
+Quindi il thread principale deve aspettare che vi sia un posto libero(quindi letto da un consumatore)
+
+- BUFFER condiviso tra produttori e consumatori
+- CONSUMATORI - prelevano dal buffer solo se c'è del lavoro nel buffer
+- PRODUTTORE - scrive in buffer solo se c'è posto libero
+
+Bisogna tener traccia dei lavori da fare e posti liberi--> COL MUTEX E' DIFFICILE
+
+abbiamo bisogno dei SEMAFORI!!
+
+SEMAFORI--> sono variabile che a differenza dei mutex si può mettere un valore intero 
+ex SEM 4 --> posso bloccarlo 4 volte 
+se SEM arriva a 0 altri thread che vogliono accedere verranno bloccati fino a che un thread ha finito di lavorare (incrementando di 1 il semaforo).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

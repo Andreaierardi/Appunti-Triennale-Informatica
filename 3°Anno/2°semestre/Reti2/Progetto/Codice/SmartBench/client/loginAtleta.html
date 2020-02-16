@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Pagina Atleta</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="doc/js/mqttws31.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="js/atleta.js">  </script>
+</head>
+<body>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h1>  <p>Sei sicuro di voler uscire?</p> </h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-lg btn-outline-success btn-block"data-dismiss="modal" onclick="redirect()">Si</button>
+          <button type="button" class="btn btn-lg btn-outline-danger btn-block" data-dismiss="modal" style="margin-top:0">No</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row"  style="margin:3rem 0rem 0rem 3rem">
+    <div class="column">
+      <div class="jumbotron" style="background-color:#F0F8FF; width: 100%; margin:1rem 1rem 1rem 1rem">
+        <h1 style="color: navy"  class="display-4">Benvenuto <script> document.write(user);</script>!   </h1>
+        <p class="lead">Cosa vuoi fare atleta?</p>
+        <hr class="my-4">
+
+        <div class="container">
+          <div class="bottoni">
+            <input id="start"type="button" class="btn btn-lg btn-outline-success btn-block" onclick="startAllenamento()" value="Inizia allenamento">
+
+            <input  id= "stop" style="display:none" type="button" class="btn btn-lg btn-outline-danger btn-block" onclick="stopAllenamento()" value="Termina Allenamento">
+
+            <input id="buttonstorico" type="button" name="button" class="btn btn-lg btn-outline-primary btn-block" onclick= "visualizzaAllenamenti()" value="Storico allenamenti">
+            <input id="buttonpiano" type="button" class="btn btn-lg btn-outline-info btn-block" name="button"onclick= "visualizzaUltimoPiano()" value="Piano di allenamento attuale">
+            <input id="buttonallenamento" type="button" class="btn btn-lg btn-outline-secondary btn-block" name="button" onclick= "visualizzaUltimoAllenamento()" value="Performance ultimo allenamento">
+            <input id="buttonlogout" type="button" class="btn btn-lg btn-outline-warning btn-block" data-toggle="modal" data-target="#myModal"value="Effettua il logout"></input>
+
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="column" >
+      <div class="card" style=" margin:3rem 3rem 3rem 3rem;font-size:20px; width:80%">
+        <div class="card-header" style="background-color:#92a8d1; color:#fff;">
+          Piano di allenamento
+        </div>
+        <ul class="list-group list-group-flush" id ="scheda">
+          <!-- <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li> -->
+        </ul>
+
+      </div>
+
+
+      <div class="card" style=" margin:2rem 2rem 2rem 3rem;height:10rem; width: 13rem; text-align:center">
+        <div class="card-body">
+          <h5 style="border-bottom:1px double lightgray;padding-bottom:2px;">  Stato Bilanciere:  </h5>
+
+          <img id = "posato" src="img/sensorON.png" style="width:50px; height:50px; text-align:center;" class="card-link">
+          <p id="descr"> Bilanciere in sede..</p>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <div class="card text-white bg-info mb-3" id="result">
+    <div class="card-header" id="write" >
+    </div>
+    <ul class="list-group" id ="sub">
+      <!-- <li class="list-group-item">Cras justo odio</li> -->
+    </ul>
+  </div>
+</body>
+</html>

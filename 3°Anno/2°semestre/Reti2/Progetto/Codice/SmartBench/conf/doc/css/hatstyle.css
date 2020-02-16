@@ -1,0 +1,186 @@
+#all {
+   padding:30px;
+   width:100%;
+   overflow:auto;
+}
+
+#header {
+    color:black;
+    text-align:left;
+    font-size: 1em;
+    padding:20px;
+    background-color:WhiteSmoke;
+    border:3px solid #d4d4d4;
+    width:100%;
+}
+
+div.holder{
+   width:100%;
+   float:left;
+   padding-left: 20px;
+   text-align: left;
+   font-size: 16px;
+   color: black;
+}
+   
+
+button.switch{
+   width:100%;
+   float:left;
+   text-align: center;
+   width:150px;
+   height:40px;
+   border:2px solid;
+   background-color:#808080;
+   font-size: 14px;
+   color: white;
+   moz-border-radius: 6px;
+   webkit-border-radius: 6px;
+   border-radius: 6px;
+}
+
+.meter{
+   width:100%;
+   float:left;
+   width:165px;
+   height:40px;
+   border:2px solid;
+   background-color:#808080;
+   font-size: 16px;
+   color: white;
+   moz-border-radius: 6px;
+   webkit-border-radius: 6px;
+   border-radius: 6px;
+   padding:5px;
+}
+
+button.meter {
+   width:120px;
+   height:28;
+   padding:1px;
+   border:2px solid;
+   background-color:#808080;
+   font-size: 16px;
+   color: white;
+   border:2px solid;
+   border-radius: 6px;
+   moz-border-radius: 6px;
+   webkit-border-radius: 6px;
+}
+
+button.meter_inner {
+   width:70;
+   height:30px;
+   padding:1px;
+   background-color:#808080;
+   font-size: 16px;
+   color: white;
+   border:2px solid;
+   border-radius: 6px;
+   moz-border-radius: 6px;
+   webkit-border-radius: 6px;
+}
+
+
+.measure{
+   float:right;
+   text-align: center;
+   height:25px;
+   width:50%;
+   color:black;
+   background-color:white;
+}
+
+button.miniswitch{
+   width:30;
+   height:25px;
+   border:2px solid;
+   background-color:#EEE;
+   padding:0px;
+   moz-border-radius: 6px;
+   webkit-border-radius: 6px;
+   border-radius: 6px;
+}
+
+button.switch:hover{
+   background-color:#800000;
+}
+
+button.meter_inner:hover{
+   background-color:#800000;
+}
+
+button.meter:hover{
+   background-color:#800000;
+}
+
+button.miniswitch:hover{
+   background-color:#800000;
+}
+
+img.arrow{
+   width:15px;
+   height:15px;
+}
+
+img.button{
+   float:right;
+   width:25px;
+   height:25px;
+}
+
+
+.barholder{
+   color:black;
+   float:left;
+   padding:20px;
+   background-color:WhiteSmoke;
+   border:3px solid #d4d4d4;
+   width:230px;
+   overflow:auto;
+}
+
+.bholder{
+   display:block;
+   float:left;
+   width:100%;
+   padding:10px
+   text-align: center;
+   font-size: 16px;
+   background-color:#CCCCCC;
+   color: black;
+   border:3px solid #808080;
+}
+
+.dbholder{
+   display:block;
+   float:left;
+   text-align:center;
+   height:70px;
+   border:2px solid #d4d4d4;
+   background-color:#808080;
+   moz-border-radius: 6px;
+   webkit-border-radius: 6px;
+   border-radius: 6px;
+   width:100%;
+}
+
+.btn {
+    display: inline-block;
+    margin-right: 2px;
+    background-color:#808080;;
+    float:right;
+}
+
+.btntext {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color:#808080;;
+    font-size: 16px;
+    color: white;
+    float:left;
+    height:60px;
+    padding-top:20px;
+}
+

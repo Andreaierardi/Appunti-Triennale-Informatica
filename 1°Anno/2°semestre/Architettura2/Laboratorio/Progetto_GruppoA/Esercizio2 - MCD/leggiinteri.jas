@@ -1,0 +1,320 @@
+// RAGGRUPPAMENTO A
+// IN QUESTO FILE POTETE TROVARE ALCUNI METODI UTILI PER LA SECONDA PARTE DELL'ESERCIZIO DI GRUPPO
+// IN PARTICOLARE QUI TROVATE UN METODO PER STAMPARE NUMERI IN BASE 10 E UN METODO PER LEGGERE CIFRE
+// NUMERICHE IN BASE 10. INOLTRE TROVATE LO PSEUDO-CODICE C DEL METODO leggi_intero_base10 DA TRADURRE
+// IN IJVM PER POTER INSERIRE DA TASTIERA NUMERI IN BASE 10. 
+// IL MAIN CONTIENE DEL CODICE CHE MOSTRA COME RICHIAMARE I METODI stampabase10 E leggicifra-base10.
+// SONO INOLTRE INCLUSE COME COMMENTO ALCUNE PARTI DI CODICE CHE POTRANNO ESSERE UTILIZZATE PER 
+// RICHIAMARE IL METODO leggi_intero_base10 QUANDO LO AVRETE TRADOTTO DA pseudo-C a IJVM.
+// 
+.constant
+// COSTANTI DA INSERIRE NEL SORGENTE PER UN CORRETTO FUNZIONAMENTO DEL METODO leggicifra-base10
+ OBJREF 0xFFFF
+ ZERO 0x30  // ASCII '0'
+ NOVE 0x39  // ASCII '9'
+ INVIO 0x0A // ASCII INVIO
+// =====================================
+// COSTANTI DA INSERIRE NEL SORGENTE PER UN CORRETTO FUNZIONAMENTO DEL METODO stampabase10
+ diecialla9 1000000000
+ maxneg  -2147483648
+// =====================================
+ maxpos  2147483647
+.end-constant
+.main
+  LDC_W OBJREF
+  LDC_W  maxneg
+  INVOKEVIRTUAL stampabase10
+  POP
+  BIPUSH 0xA
+  OUT
+// PER PROVARE METODO leggi_intero_base10 DOPO AVERLO IMPLEMENTATO  
+  BIPUSH 0x49
+  OUT
+  BIPUSH 0x4E
+  OUT
+  BIPUSH 0x3A
+  OUT
+  BIPUSH 0x3A
+  LDC_W OBJREF 
+  BIPUSH 10
+  INVOKEVIRTUAL leggi_intero_base10
+  BIPUSH 0xA
+  OUT
+  LDC_W OBJREF 
+  SWAP
+  INVOKEVIRTUAL stampabase10
+  POP
+ //TEST leggicifra-base10 LEGGE UNA SOLA CIFRA DECIMALE E LA STAMPA
+ //BIPUSH 0x49
+ //OUT
+ //BIPUSH 0x4E
+ //OUT
+ //BIPUSH 0x3A
+ //OUT
+ //LDC_W OBJREF
+ //INVOKEVIRTUAL leggicifra-base10
+ //BIPUSH 0x0A
+ //OUT
+ //LDC_W OBJREF
+ //SWAP
+ //INVOKEVIRTUAL stampabase10
+ //POP
+   
+  
+   HALT
+.end-main
+
+// DA REALIZZARE METODO PER LEGGERE UN INTERO IN BASE 10 CON AL MASSIMO maxcifre CIFRE
+// PSEUDOCODICE METODO - sono forniti (vedere più avanti) i metodi leggicifra-base10() e 
+// perdieci(n)
+//
+.method leggi_intero_base10(maxcifre)
+.var
+	num
+	cont
+	endofline
+	c
+.end-var
+
+	BIPUSH 0       // Si carica il valore 0 sullo stack
+	ISTORE num     // Si salva il valore in cima allo stack nella variabile num
+			
+			//num = 0 
+	
+	BIPUSH 0	// Si carica il valore 0 sullo stack
+	ISTORE cont     // Si salva il valore in cima allo stack nella variabile cont
+			
+			//cont = 0
+
+	BIPUSH 0	 // Si carica il valore 0 sullo stack
+	ISTORE endofline // Si salva il valore in cima allo stack nella variabile endofline	
+			 //endofline = 0
+
+aggiornamento:
+
+	ILOAD cont        //Si carica il valore di cont sullo stack
+	ILOAD maxcifre    //Si carica il valore di maxcifre sullo stack
+	IF_ICMPEQ return  //Se i due valore sono uguali vado alla label return
+		          //if (cont==maxcifre)
+	
+	BIPUSH 0	  //Si carica il valore 0 sullo stack poichè se cont e maxcifre non sono uguali viene ritornato
+			  //il valore 0. In questo modo si ha una variabile booleana da confrontare in OR con 
+		          //endofline
+
+	ILOAD endofline   //Si carica il valore di endofline
+	IOR	          //((cont==maxcifre) OR endofline)
+		          
+	BIPUSH 0	  //Si confronta l'OR con 0, in modo tale da decidere se compiere il salto a "ciclo" o a "return"
+	IF_ICMPEQ ciclo   //Se risultato di IOR è uguale a 0 salta a "ciclo"
+	
+	GOTO return       //Se risultato di IOR è uguale a 1 salta a "return"
+	
+ciclo:
+	LDC_W OBJREF			  //Si carica costante OBJREF sullo stack, per preparare lo stack al richiamo del metodo
+						
+	INVOKEVIRTUAL leggicifra-base10   //Si chiama la funzione leggicifra-base10
+	ISTORE c			  //Si salva il valore ritornato dalla invokevirtual e viene salvato in c
+		
+	ILOAD c				  //Si carica c in cima allo stack
+	IFLT endofline_equal_one	  //Se (c<0) avviene il salto alla label "endofline_equal_one" quindi all'else dello pseudo codice 						  //in C
+	
+	LDC_W OBJREF                      //Si carica costante OBJREF sullo stack, per preparare lo stack al richiamo del metodo
+	ILOAD num		          //Si carica num sullo stack in modo tale da passarlo come parametro del metodo
+	
+	INVOKEVIRTUAL perdieci		  //num*10
+	ILOAD c			 	  //Si carica il valore di c sullo stack
+	IADD 			 	  //num*10+ c
+	ISTORE num			  //num = num*10 + c
+	
+	IINC cont +1			  //cont++
+	
+	GOTO aggiornamento		  //Viene ripetuto il controllo tra maxcifre e cont aggiornato
+	
+endofline_equal_one:			  //Viene eseguito l'Else dello pseudo codice in C (quindi c>=0)
+	BIPUSH 1		          //endofline = 1
+	ISTORE endofline		  //Viene aggiornato endofline
+	
+	GOTO aggiornamento	 	  //Si salta alla label "aggiornamento" per effettuare il controllo con endofline aggiornato
+	
+	
+return:					  //Label di return
+	
+	ILOAD num			  //Carico num sulla cima dello stack
+			
+	IRETURN				  //Viene ritornato il valore di num
+	
+.end-method
+
+// restituisce un intero inserito da tastiera seguito da invio con al massimo maxcifre cifre.
+// SEGUE pesudo codice C DA TRADURRE IN IJVM
+// num = cont = endofline = 0;
+// while not ((cont == maxcifre) or endofline))
+//   { c = leggicifra-base10();
+//     if  not (c<0) 
+//         { num = num * 10 + c; // utilizzare il metodo perdieci(n) per la moltiplicazione per 10
+//           cont++;}
+//      else endofline = 1;
+//     }
+// 
+
+
+// metodo leggicifra-base10 legge da tastiera un carattere e lo stampa e ne restituisce 
+// il valore solo nel caso sia una cifra numerica tra '0' (ascii 0x30) e '9' (ascii 0x39) 
+// oppure l'invio (ascii 0x0A) - in quest'ultimo caso restituisce -1
+.method leggicifra-base10()
+   GOTO input_cifra // salta POP la prima volta
+retry:
+    POP // butta via lo 0 o scarta un codice ASCII non accettabile
+input_cifra:
+    IN  // IN restituisce 0 se non è stato premuto alcun tasto, 
+        // oppure il codice ASCII del tasto premuto
+    DUP
+    IFEQ retry
+    DUP
+    LDC_W INVIO // tasto "invio"
+    IF_ICMPEQ menouno
+    DUP
+    LDC_W ZERO
+    ISUB
+    IFLT retry // caso carattere con codifica < 0x30 : SCARTARE
+    DUP
+    LDC_W NOVE
+    SWAP
+    ISUB
+    IFLT retry // caso carattere con codifica > 0x39 : SCARTARE
+finechr:       // caso carattere numerico accettabile
+    DUP 
+    OUT
+    BIPUSH 0x30
+    ISUB 
+    IRETURN
+menouno:
+    OUT
+    BIPUSH -1 // nel caso sia stato inserito invio restituiamo -1
+    IRETURN
+.end-method
+
+
+
+.method stampabase10(num) // stampa il numero num rappresentato in base 10
+// gestisce in modo separato il massimo numero negativo
+// ed usa un metodo ricorsivo in grado di stampare correttamente tutti i numeri
+// positivi di valore <= Massimo numero positivo
+ILOAD num
+LDC_W maxneg
+IF_ICMPEQ overflow // se il numero da stampare è il max numero neg. lo tratto diversamente: stampo -2 e poi applico il metodo ricorsivo a -(num+2*diecialla9)
+GOTO normale
+overflow:
+ILOAD num
+LDC_W diecialla9
+DUP
+IADD
+IADD  // calcola  num+2*dieciallanove
+BIPUSH 0
+SWAP
+ISUB // poi cambia di segno il risultato
+BIPUSH 0x2D // stampa il carattere -
+OUT
+ISTORE num // stampa il carattere 2
+BIPUSH 0x32
+OUT
+GOTO metodoricorsivo // il metodo ricorsivo qui richiamato stampa le cifre da 
+                     // quella di peso 10^8 in poi
+normale: // caso num diverso da massimo numero negativo
+ILOAD num
+IFLT stampameno // se valore negativo stampo meno e cambio segno
+GOTO metodoricorsivo
+stampameno:
+BIPUSH 0x2D // stampa il carattere -
+OUT
+BIPUSH 0  // cambia segno al valore da restituire:
+ILOAD num // num = 0 - num;
+ISUB  
+ISTORE num
+metodoricorsivo: // richiamo ricorsivo del metodo 
+LDC_W OBJREF
+ILOAD num
+BIPUSH 1
+INVOKEVIRTUAL stampabase10ric
+IRETURN
+.end-method
+ 
+
+// IL SEGUENTE METODO SI PUO' UTILIZZARE PER STAMPARE IL RISULTATO 
+.method stampabase10ric(num,divisore) 
+// i parametri passati devono essere positivi
+// se num < divisore*10 stampa il quoziente di num/divisore e restituisce il resto
+// altrimenti chiamata ricorsiva moltiplicando divisore * 10
+.var
+rem
+q
+r
+divper10
+.end-var
+BIPUSH 0
+DUP
+ISTORE q
+ISTORE r   // q = r = 0
+// se il divisore è 10^9, num è certamente minore di divisore*10, quindi non è necessaria un'altra chiamata ricorsiva
+ILOAD divisore     // if (divisore==diecialla9) goto casobase
+LDC_W diecialla9
+IF_ICMPEQ casobase 
+LDC_W OBJREF      //  calcola divper10 = divisore*10 per il confronto che segue
+ILOAD divisore
+INVOKEVIRTUAL perdieci
+ISTORE divper10
+ILOAD num        // if (num<divper10) goto casobase - non necessaria ricorsione
+ILOAD divper10
+ISUB
+IFLT casobase    //
+LDC_W OBJREF    // else - vale la condizione (num>=divper10)
+ILOAD num
+ILOAD divper10
+INVOKEVIRTUAL stampabase10ric // chiamata ricorsiva con divisore * 10
+ISTORE rem 
+GOTO calcQ  // procede al calcolo ed alla stampa della cifra di 
+            // peso pari a divisore in rem
+casobase:
+ILOAD num
+ISTORE rem
+calcQ:  // calcolo quoziente di rem / divisore
+ILOAD divisore // se il divisore è == 1 il quoziente è rem e resto =0
+BIPUSH 1
+IF_ICMPEQ q_eq_rem
+ILOAD rem
+ISTORE r
+ciclo: // sottrazioni successive di divisore ci permettono di calcolare q e r
+// q quoziente e r resto della divisione rem/divisore
+ILOAD r
+ILOAD divisore
+ISUB
+DUP
+IFLT stampa
+ISTORE r
+IINC q 1
+GOTO ciclo
+q_eq_rem:  // si arriva qui se divisore == 1
+ILOAD rem
+ISTORE q
+stampa: // stampa cifra relativa al quoziente (sicuramente compresa tra 0 e 9)
+ILOAD q
+LDC_W ZERO
+IADD
+OUT     // stampa la cifra di peso == divisore
+ILOAD r // restituisce r, nel caso paricolare divisore==1, r = 0
+IRETURN
+.end-method
+
+.method perdieci(n) // restituisce n*10
+ ILOAD n
+ DUP
+ IADD // n*2 sullo stack
+ DUP 
+ DUP
+ IADD // n*2*2 in mem[SP], n*2 in mem[SP-1]
+ DUP 
+ IADD // n*2*2*2 in mem[SP], n*2 in mem[SP-1]
+ IADD // n*10 in mem[SP] 
+fine:
+ IRETURN
+.end-method

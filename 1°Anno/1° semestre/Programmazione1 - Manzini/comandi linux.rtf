@@ -1,0 +1,147 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1040{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.14393}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\cf1\f0\fs22\lang16 Pwd \cf0 =percoso in cui mi trovo es: /home/n.matr/\par
+\cf1 ls \cf0 =elenco di cosa si trova nel mio percorso\par
+\cf1 ls -a \cf0 =anche i file nascosti\par
+\cf1 ls - l \cf0 =mostra un formato esteso per ogni cartella compresi i permessi(posso utilizzare ls-al somma di -a e -l)\par
+\cf1 more\cf0  =posso leggere un file es (more /home/n matr/codice.py )oppure more file (se sono nel percorso del file)\par
+\cf1 cd\cf0  =change directory, cambia cartella di posizionamento\par
+\cf1 cd .. \cf0 =torna indietro di uno\par
+\cf1 cd\cf0  =torna alla home\par
+cd tab(2 volte)=mi mostra le cartelle del sistema anche quelle nascoste\par
+~=altgr+i\par
+\cf1 cd ~ \cf0 =torno alla home directory, posso creare anche percorsi es. cd~/Documents/\par
+\cf1 mkdir\cf0  = mi crea una cartella es(mkdir cartella) mentre (mkdir .cartella) ne crea una nascosta)\par
+\cf1 mkdir -p ca1/ca2/ca3 \cf0 = ne crea 3 una dentro l altra se invece non avessi usato -p alla cartella ca2 se non esiste si ferma e da errore\par
+\cf1 mkdir Documents/eserciziesempio/ciao \cf0 = posso creare cartelle all'interno di percorsi ma il percorso precedente alla cartella deve esistere\par
+\cf1 touch file \cf0 =mi crea un file vuoto con il nome che assegno (es touch file1) se il file esiste gia modifica solo l ora e data.\par
+\cf1 ?\cf0  \cf1 = un carattere *=infiniti caratteri ;cat[0-99].xls\cf0 =prende un range di 2 cifre\par
+\cf1 echo\cf0  =stampa a schermo cio che vogliamo, es echo file*\par
+\cf1 cp file filecopia \cf0 =copia gli elementi di file in file copia\par
+\cf1 es cp file ca2/filecopia \cf0 =posso utilizzare un percorso\par
+\cf1 cp -r  \cf0 =per copiare le cartelle in altre cartelle\par
+es:cp -r ca2 ca2copia\par
+\cf1 mv\cf0  =rinonima es:mv file file1 rinonima file in file1\par
+\cf1 mv\cf0  =anche per spostare infatti  se al posto di mettere il nome di un file nuovo ne metto uno gia esistente viene sovrascritto(sostituito)\par
+rinonima anche le cartelle se voglio spostare delle cartelle in altre cartelle gia esistenti sta volta non sostituisce ma aggiunge la nostra cartella di partenza dentro a quella di destinazione. \par
+\cf1 rm \cf0 =cancella es rm file\par
+\cf1 rmdir\cf0  =per cancellare le directory se sono vuote\par
+\cf1 rm -r \cf0 =cancella anche se sono piene es rm -r ca2\par
+\cf1 rm -f \cf0 =cancella i file fregandosene di tutto eliminazione forzata\par
+\cf1 rm -rf* \cf0 =cancella cartelle e file nella directory corrente\par
+\cf1 rm -rf/ \cf0 =cancella tuttotutto\par
+\cf1\b vi testo.txt \cf0\b0 =apre il file di testo\par
+\cf1\b :%s/ \cf0\b0 =mi fa sostiruire una cosa con l altra es. :\cf1\par
+%s/testo/scritto/g  \cf0 sostituisce tutte le parole senza chiedermi nulla\par
+mentre \cf1\b :%s/testo/scritto/gc \cf0\b0 mi chiede conferma\par
+\cf1\b gg \cf0\b0 =va sopra al file   GG=va in fondo  dd=cancella riga  5DD=cancellla 5 righe dal punto in cui mi trovo\par
+\cf1\b history\cf0\b0 =vediamo i comandi digitati\par
+\cf1\b who\cf0\b0 =chi usa la macchina\par
+\cf1\b last\cf0\b0  =l elenco degli ultimi connessi nell ultimo periodo\par
+\cf1\b hexdump file.txt \cf0\b0 =ci fa vedere un file di testo senza interpretazione, hexdump -c file.txt= mi mostra anche il testo con /n\par
+\cf1\b hexdump -C file.txt \cf0\b0 =come -c senza /n\par
+grep= file* grep pdf= mi trova i file estensiomne pdf(non funziona)\par
+in alternativa uso ls file*.pdf\par
+which=mi dice il percorso di un comando esempio=which ls  mi da /usr/bin/ls\par
+echo $PATH=mi mostra tutti i percorsi assoluti presenti\par
+PATH=....:$PATH  per assegnare percorsi\par
+alias=mi permette di associare a un comando un altro nome\par
+es: alias la="l -a"\par
+poi vi ~/.bashrc inserisco alias "la=ls -a" per rendere effettive le modifiche esco dal terminale e rientro\par
+se scrvo vi source ~/.bashrc rendo effettive le modifiche sul terminale corrente\par
+env=da l'elenco delle variabili\par
+export PATH=/mio/percorso:$PATH  per inserirlo nel bash\par
+du=dimensioni di file e cartelle in formato non leggibile\par
+du -h=formato leggibile es:du -h Documents\par
+du -ch Documents/ Downloads mi da i valori di documents e downloads e il loro totale\par
+du -sch=ci dice valore deolla cartella corrente\par
+df=guarda lo stato delle periferiche collegate\par
+df -h=formato leggibile per gli umani\par
+du -shc *=mi fa vedere dove viene occupato lo spazio\par
+du -shc .*=anche quelle nascoste\par
+less diff1 e more diff1=ci fa leggere un file di testo stampandoli a schermo, con more possiamo solo scorrere verso il basso e quando siamo arrivati alla fine esce da solo dal file mentre con less si puo anche andare indietro e per  uscire si utilizza :q\par
+head file=leggiamo le prime 10 righe\par
+tail file=le ultime 10\par
+tail -n2 file ci legge le ultime 2 righe idem per head solo che legge le prime\par
+cat file= mi stampa totalmente senza dover scorrere, viene usato per compiere operazioni per concatenare i file\par
+es cat spezzato1 spezzato2\par
+>=serve per spostare un output in un altra cartella/file . se la cartella \'e8 gi\'e0\~ esistente ne sostituisce il contenuto altrimenti ne crea una nuova\par
+>>= serve per concatenare l output di un comado con il contenuto di un altro file o cartella\par
+con 2>=dirigo lo standard error(se era gia presente qualcosa nel file di destinazione lo sostituisce) mentre con 2>> concateno lo standard error con &> porto tutto nel file di destinazione(output e standard error)\par
+sort= ordina un file di testo incolonnato una parola per riga(ordine alfabetico)\par
+sort -k 1 =ordina la prima colonna(es sort -k 1 ordineprimacolonna)li ordina secondo la codifica ascii\par
+sort -n -k 1=grazie a -n li ordina a seconda dei numeri\par
+sort -u=il file viene ordinato e collassa i duplicati(ne elimina solo 1)es:(sort -u Paroledoppioni)\par
+uniq=collassa i duplicati solo se il file \'e8 gi\'e0\~ ordinato(si usa dopo il sort)\par
+uniq -d=mi da le parole doppie\par
+uniq -u= mi da le parole che nel file di partenza erano uniche(elimina entrambi i duplicati)\par
+cut= serve per salvare un file con solo le n colonne es (cut -f 2,3 Tabella-del) mi tiene solo la colonna 2 e 3 le colonne devono essere separate da tab o spazi\par
+se le colonne sono separate da altri elementi : cut -d "," - f 1,2 Tabella-del\par
+ricordo che posso usare vi oper modificare ad esempio: :%s/\\t/,/g  (\\t \'c3\'a8 il tab che viene sostituito con la virgola, g mi fa operare senza chiedere conferma, se aggiunco a g anche la "c" mi chiede conferma per ogni sostituzione)\par
+wc=wordcut(statistiche su un file di testo)...wc paroledoppioni (primo valore=new line  secondo valore= numero di parole, terzo valore=numero di byte (ogni carattere vale 1byte))\par
+wc -l= numero di righe\par
+wc -w=numero di parole\par
+wc -c=numero di byte\par
+grep "No" Tabelladel=mi stampa le righe con la stringa che ho cercato\par
+grep -i "no" tabella=non fa distinzione tra minuscole e maiuscole\par
+grep -v "No"=inverte la richiesta mi stampa le righe che non contengono il no\par
+grep -c "Ma"= mi indica la quantita di righe in cui \'e8 contenuta "ma"\par
+con il "|" si fanno operazioni consecutive es: grep "20"file.txt|grep "ma"   opera sullo stesso file\par
+mentre per separare 2 operazioni es : grep "20" tabella ; cd/home\par
+con ls -l posso vedere anche i permessi\par
+-rw-r--r  :\par
+1)prima tripletta=proprietario 2)seconda tripletta=gruppi  terza tripletta=altri\par
+r=lettura   w=scrittura   x=esecuzione\par
+codice binario lettura=100 e corrisponde al numero binario 4\par
+chmod= modifico i permessi\par
+es: chmod +x tcsv  aggiungo il permesso di esecuzione per tutti\par
+chmod -x tolgo il permesso a tutti\par
+posso scegliere a quale gruppi assegnarli u=proprietario, o=altri, g=gruppo\par
+chmod u+rwx, g+x, o-r tcsv\par
+posso fare assegnazioni\par
+chmod "u=rw,g=r,o=---" tcsv\par
+chmod 777 tcsv \'e8 come se fosse 111 quindi do a tutti tutti i permessi\par
+se uso vi c1 con c1 = cartella posso vedere cosa c'\'e8 all interno della cartella e se ho il permesso di scrittura posso anche modificare il contenuto\par
+gestione dei processi:\par
+ps=informazioni processi in esecuzione, mi compaiono solo i processi generati da questo terminale\par
+ps aux= stampa tutti i processi in esecuzione sulla macchina con informazioni aggiuntive\par
+1)colonna                          2)colonna(pid)\par
+chi ha eseguito il programma   identificatore numero del processo\par
+\par
+ps aux| more= ci legge l output come se fosse file di testo una schermata alla volta\par
+top=mi da le caratteristiche del sistema processi memoria users pid ecc..\par
+i processi piu in alto sono quelli che stanno usando + risorse\par
+es:\par
+python imput-attesa.py (lo eseguo)\par
+dammi n. 121           (do questa indicazione)\par
+se scrivo velocemente ps aux posso vedere il processo in esecuzione\par
+se il processo \'e8 troppo lungo posso fermare il processo con control+c.con ps aux ora il processo sara terminato e restituisce il risultato\par
+se non posso usare il comando control+c posso usare kill+8132\par
+dove 8132 \'e8 l'id del processo qua a differenza di control+c non restituisce il risultato\par
+kill -9 id= se non vuole smettere gli leva le risorse al processo e termina\par
+killed=da come risposta killed\par
+kill +id (interfacciagrafica)=posso levare la interfaccia grafica\par
+con xkill (senza id)mi chiede la finestra che voglio uccide da cliccare con il puntatore\par
+thunar= ci apre il nostro file manager\par
+poi aprendo un altro terminale se digitiamo killall thunar  mi chiude tutti i processi che si chiamano thunar\par
+pkill thunar= fa la stessa cosa di killall\par
+se non apriamo un altro terminale tutto quello che scrivo sotto thunar viene ignorato fino a quando il processo rimane in esecuzione, cio significa che il processo era andato in primo piano(FOREDGROUND)\par
+se voglio chiudere il processo dallo stesso terminale uso control+c\par
+se scrivo thunar & manda in background thunar\par
+es:thunar &\par
+[1]    8665(id)\par
+jobs=mi fa vedere i processi lanciati con questo terminale\par
+es: dopo thunar & se scrivo jobs mi da "[1] running thunar"\par
+se dopo thunar scrivo control+z sosepende il processo se poi scrivo "bg"=manda il processo in background\par
+chiudendo il terminale termino anche tutti i processi aperto con lo stesso\par
+nohup=per lasciare aperti i processi anche dopo la chiusura del terminale\par
+es: nohup thunar &  = mi apre thunar ma se chiudo il terminale rimane aperto (\'e8 utile se si lavora con i server)\par
+more nohup.out =mi apre gli output di quel processo\par
+posso chiuderli sempre con killall\par
+fg%(id del processo dall'elenco dei jobs)= porta un programma dal background al foreground\par
+es: fg%1=mi porta in primo piano thunar perche prima dall elenco dei jobs a thunar era assegnato il numero 1.\par
+sleep=fa dormire il terminale per i secondi che gli immettiamo\par
+esempio:sleep 100   il terminale rimane sospeso per 100 secondi\par
+}
+ 

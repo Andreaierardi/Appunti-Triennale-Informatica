@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>CONFIGURAZIONE</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js" type="text/javascript"></script>
+
+  </head>
+<script>
+
+
+function submit1() {
+  	var broker = $('#broker').val();
+		var time_all = $('#time_all').val();
+    var time_pause = $('#time_pause').val();
+    var time_bil = $('#time_bil').val();
+
+		//var b = $('#b_form').val();
+
+    var cmd = '{"broker":'+broker+', "time_all": '+time_all+', "time_pause":'+time_pause+', "time_bil":'+time_bil+'}';
+		//var cmd = '{"a":' +a+ ', "broker":"' +ip+ '"}';
+
+		//var cmd = '{"a":' +a+ ', "b":' +b+ ', "ip":"' +ip+ '"}';
+		console.log(cmd);
+		$.ajax({ type: "POST", url: "/load", data: cmd,
+		success: function(d) {console.log(cmd);},
+		error: function(d) {console.log("Male male");}
+	});
+}
+
+function reset() {
+
+		$.ajax({ type: "POST", url: "/reset", data: "reset",
+		success: function(d) {console.log("OK");},
+		error: function(d) {console.log("Male male");}
+	});
+}
+
+function danger()
+{
+
+
+  console.log("{'cmd' : 'error'}");
+  $.ajax({ type: "POST", url: "/load", data: "{'cmd' : 'error'}",
+  success: function(d) {console.log("{'cmd' : 'error'}");},
+  error: function(d) {console.log("Male male");}
+  });
+}
+</script>
+  <body style="  overflow: hidden;">
+
+<div class = "jumbotron" style = " background-color: white; padding-top:1rem;">
+
+
+  <h2 style=" text-align:center; color: navy;width: 100%;background:white; font-size:50px" class="display-4"> CONFIGURAZIONE SMARTBENCH  </h2>
+  <p class="lead" style="text-align:center;">Wellness first</p>
+  <hr class="my-4">
+
+  <div class="container" >
+
+
+      <form id="form-login"  onsubmit="return submit1()">
+
+   <div class="form-group" style="font-size:22px">
+    <label for="ip_form">IP Broker</label>
+    <input type="text" class="form-control form-control-lg" id="broker" name ="broker" aria-describedby="emailHelp" value="193.206.55.23" required name="broker">
+  </div>
+
+  <div class="form-group" style="font-size:22px">
+
+  <label for="time_all">Tempo di esecuzione di ogni serie</label>
+
+  <div class="input-group-prepend">
+
+
+  <select class="custom-select" id="time_all" aria-label="Example select with button addon" style="width:30%;height:50px">
+    <option value="15">15s</option>
+    <option value="30">30s</option>
+    <option value="60" selected>60s</option>
+      <option value="90">90s</option>
+    <option value="120">120s</option>
+      <option value="150">150s</option>
+        <option value="180">180s</option>
+  </select>
+</div>
+  </div>
+
+
+  <div class="form-group" style="font-size:22px;">
+
+  <label for="time_pause">Tempo di pausa tra ogni serie</label>
+
+  <div class="input-group-prepend">
+
+
+  <select class="custom-select" id="time_pause" aria-label="Example select with button addon"  style="width:30%;height:50px">
+    <option value="15">15s</option>    
+	<option value="30">30s</option>
+    <option value="60" selected>60s</option>
+      <option value="90">90s</option>
+    <option value="120">120s</option>
+      <option value="150">150s</option>
+        <option value="180">180s</option>
+  </select>
+</div>
+  </div>
+
+  <div class="form-group" style="font-size:22px; ">
+
+  <label for="time_bil">Tempo di monitoraggio dello stato del bilanciere</label>
+
+  <div class="input-group-prepend">
+
+
+  <select class="custom-select" id="time_bil" aria-label="Example select with button addon"  style="width:30%;height:50px;">
+    <option value="0">test allarme</option>
+    <option value="3">3s</option>
+    <option value="5">5s</option>
+      <option value="10" selected>10s</option>
+    <option value="15">15s</option>
+  </select>
+  </div>
+  </div>
+
+
+
+
+<div style="text-align:center; border-bottom:0.5px double lightgray; padding-bottom:1rem;">
+
+  <button type="submit" class="btn btn-primary mb-2">Invio</button>
+</div>
+
+      </form>
+
+    </div>
+
+    <div class="form-group" style="font-size:15px;">
+      <label for="reset">Per resettare l'applicazione, premere su "Reset"</label>
+    <div class="input-group-prepend">
+      <button type="button" class="btn btn-info"  onclick="reset()" style="width:15%;">RESET</button>
+    </div>
+
+    </div>
+    <div class="form-group" style="font-size:15px;">
+      <label for="emergenza">Interrutore di emergenza</label>
+    <div class="input-group-prepend">
+        <button type="button" class="btn btn-danger" onclick="danger()" style="width:15%;">SHUTDOWN</button>
+    </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+      </body>
+</html>

@@ -1,0 +1,10 @@
+1 al quadrato guguale a 1
+2 al quadrato guguale a 4
+3 al quadrato guguale a 9
+4 al quadrato guguale a 16
+5 al quadrato guguale a 25
+6 al quadrato guguale a 36
+7 al quadrato guguale a 49
+8 al quadrato guguale a 64
+9 al quadrato guguale a 81
+10 al quadrato guguale a 100

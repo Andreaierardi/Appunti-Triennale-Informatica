@@ -1,0 +1,7 @@
+Anna_Karenina Lev_Tolstoj 20 5
+Arrighetto Carlo_Coccia 15 20
+Divina_Commedia Dante 12 3
+La_Coscienza_di_Zeno Italo_Svevo 5 1
+Dubliners James_Joyce 40 3
+Tavolozza Emilio_Praga 30 10
+Ulysses James_Joyce 50 2

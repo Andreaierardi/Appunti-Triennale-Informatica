@@ -1,0 +1,102 @@
+.constant
+OBJREF 0x40
+.end-constant
+
+.main
+
+.var
+solution
+.end-var
+
+	LDC_W OBJREF
+	BIPUSH 0
+	BIPUSH -20
+	INVOKEVIRTUAL MCD
+	
+	BIPUSH 0x30
+	IADD
+	OUT
+	
+	HALT
+	
+.end-main
+
+.method MCD(a,b)
+
+.var
+risultato
+resto
+.end-var
+
+start:				//Carico il valore di 'a' e verifico che sia maggiore o uguale a 0
+	ILOAD a			
+	DUP
+
+	IFGE controllo_b	//Se ( a >= 0) passo al controllo di b
+	GOTO neg-a		//Se ( a < 0 ) porto 'a' in positivo
+
+neg-a:				//Eseguo la sottrazzione tra 0 e 'a' in modo da trasformare a in positivo  ( 0 - (-a ) ) = a
+	POP
+	BIPUSH 0
+	ILOAD a
+	ISUB
+
+	ISTORE a		//Salvo il nuovo valore di 'a' e passo al controllo di b
+	
+	ILOAD a
+	GOTO controllo_b
+
+	
+
+controllo_b:			//Carico b e verifico se:
+
+	ILOAD b
+	
+	DUP 
+	IFEQ equaltozero	// ( b == 0 ) salto alla label equaltozero
+	
+	DUP
+	IFLT neg-b		// ( b < 0 ) salto alla label neg-b e lo trasformo in positivo
+	
+	DUP
+	IFGE resto		// ( b >= 0 ) salto alla label resto
+
+
+neg-b:				//Eseguo la sottrazzione tra 0 e 'b' in modo da trasformare a in positivo  ( 0 - (-b ) ) = b
+	
+	POP
+	BIPUSH 0
+	ILOAD b
+	ISUB
+
+	ISTORE b		//Salvo il nuovo valore di 'b' e passo alla label resto
+	
+	ILOAD b
+	GOTO resto
+
+equaltozero:			//Se ( b == 0 ) Elimino b dalla cima dello stack e restituisco 'a'
+	
+	POP
+	ISTORE risultato
+	GOTO return
+	
+resto:				//Funzione di resto tra 'a' e 'b' e salvo il risultato nella variabile resto
+	
+	IREM
+	ISTORE resto			
+	
+	LDC_W OBJREF		//Preparo i parametri da passare al metodo
+	ILOAD b			//Carico 'b' sullo stack per passarlo come parametro
+	ILOAD resto		//Carico 'resto' sullo stack per passarlo come parametro
+
+	INVOKEVIRTUAL MCD	
+	ISTORE risultato	//Salvo il valore ritornato dal metodo nella varibiabile risultato
+	GOTO return	
+	
+
+	
+return:				//Ritorno il valore della variabile risultato al main
+	ILOAD risultato
+	IRETURN
+	
+.end-method

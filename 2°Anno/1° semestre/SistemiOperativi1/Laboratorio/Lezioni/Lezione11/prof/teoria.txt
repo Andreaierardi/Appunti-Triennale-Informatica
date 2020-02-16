@@ -1,0 +1,180 @@
+===Condition variables====
+servono per mettere in attesa un thread in attesa che venga verificata una certa condizione. E' possibile anche senza CV ma vi è un busy waiting. 
+Se thread hanno bisogno di memoria per delle funzioni, se ad una certa non c'è più memoria bisogna bloccare il thread. Questo potrà ripartire subito appena la memoria viene liberata da altri threads.
+-- size --> quantità di memoria richiesa
+-- bytesLeft--> rappresenta la quantità di memoria disponibile
+
+while(bytesLeft < size) 
+ pthread_cond_wait(&c, &m)
+
+è in busy waiting quindi bisogna usare una variabile condizione 'c' .  'm' è un mutex
+mutex necessario per evitare che più threads accedano alla memoria
+Funzione pthread_cond_wait che aspetta condizione da c però il mutex deve essere locckato!
+Viene segnato in attesa e sblocca mutex la cond_wait
+
+Viene locckato thread finchè non faccio free della memoria. funzione free_mem 
+lock su mutex
+libero memoria
+bytesLeft incrementato (quindi memoria libera viene aumentata di size
+pthread_cond_broadcast (&c) --> Faccio svegliare tutti i threads che sono in attesa su &c 
+unlock mutex
+
+Se vi sono tre thread risvegliati, solo uno riuscirà a riprendere il mutex e gli altri torneranno in attesa non più su cond ma sul mutex
+
+=======
+esempio
+Usiamo var condizione e il suo mutex, insieme ad una var intera--> tutto in struct zem
+void zem_init( zem  *z, int q) --> mette valore iniziale e inizializza cond e mutex
+
+Se qualcuno vuole fare chiamata su semaforo
+
+- sem_wait = zem _down;
+- sem_post = zem_up;
+
+void zem_down(zem *z, int q)   --> se q> 0 aggiorno semaforo, altrimenti mi metto in attesa e aspetto
+pthread_mutex_lock( &z -> mutex);
+while (z-> tot -q <0 )
+	pthread_cond_wait ( &z-> cond, &z->mutex) --> mi blocco su questa condizione e mi mette in attesa di up da parte di altri processi
+z-> tot - = q;
+pthread_mutex_unlock (&z-> mutex);
+}
+
+E' più potente di un semaforo perchè qui non devo per forza decrementare di 1 ma di q.
+========
+esempio2
+
+int reades = 0 ; --> tiene conto di chi legge
+bool writing = false --> tiene conto se qualcuno sta scrivendo o no nell'array condiviso
+
+read_lock()--> locco se qualcuno sta leggendo 
+lock su mutex
+while (writing)   --> attende se qualcuno sta scrivendo
+	pthread_cond_wait ( &c, &m)
+readers++;
+pthread_mutex_unlock(&m)
+}
+
+read_unlock () --> appena finito di leggere decremento readers e 
+pthread_mutex_lock (&m)
+readers --;    --> decremento readers perchè ho appena finito di leggere
+if (readers == 0) pthread_cond_signa(&c)  --> segnalo ad un solo writer che c'è posto libero per scrivere
+pthread_mutex_unlock(&m)
+
+Se thread vuole scrivere
+lock su mutex
+while ( writing || readers >0 )    --> se nessuno sta leggendo e scrivendo allora posso scrivere sennò rimango in wait
+	pthread_cond_wait(&c, &m)
+writing = true;
+pthread_mutex_unlock (&m)
+
+
+write_unlock ()
+locco mutex
+writing = false 
+pthread_cond_broadcast ( &c ) --> segnalo a tutti i threads che ho finito di scrivere
+sblocco mutex
+
+
+PROBLEMA --> Se entrano solo lettori , lo scrittore rimarrà perennemente in starvation
+
+==============================================
+SEMAFORI per controllare i processi
+Per poter usare i semafori dobbiamo inizializzare la variabile pshared
+Se mettiamo un valore pshared != 0 possiamo renderlo condivisibile tra i vari processi. Il problema è che bisogna metterlo per forza in una memoria condivisa
+Abbiamo bisogno di 3 semafori invece di due!
+- free slot e data items
+- ma anche mutex_consumer!
+
+Stesso che facevamo con memoria condivisa ma utilizzando sizeof (sem_t) e 'sem_t *a' = (sem_t *) xshmat(shmid , NULL,0 ,__LINE__, __FILE__); --> shared memory attached
+""VEDETELO COME UN ARRAY DI SEMAFORI""
+I tre semafori puntato a diverse zone di memoria condivisa , quindi sono semafori condivisi
+I figli vedono gli stessi semafori del padre
+Inizializzando devo mettere 1 --> in modo da renderli condivisibili
+mutex_consumer inizializzato a 1 --> semaforo binario
+
+-------BISOGNA ANCHE CREARE MEMORIA CONDIVISA PER BUFFER, CINDEX , PINDEX-----------
+shmid2  = xshmget (....,2 *p+ Buf_size+1 ) *sizeof (int )...)   --> abbiamo bisogno di 2 * p +Buf_size +1 spazio per semaforo 
+int *buffer =(int *) xshmat (..,0,..)
+int *somma = buffer +Buf_size;
+int *quanti = somma + p;
+int *cindex = quanti +p;
+*cindex = 0 ;
+int pindex = 0 ;
+
+
+--- EX CON 4 PROCESSI
+somma ha bisogno di 4 spazi
+quanti ha bisogno di 4 spazi 
+buffer ha bisogno di 10 spazi
+cindex ha bisogno di 1 spazio
+
+In  totale 19 spazi--> mi alloco un unico array intero di 19 posti 
+|              | |     | |        | |
+^	       ^10     ^14        ^18
+buffer         somma   quanti     cindex
+
+--------
+Ciclo for che genera i processi figli e dentro il ciclo si scrive codice figli
+Codice consumatori
+-------------
+xsem_wait(data)
+xsem_wait(mutex_consumer ) --> per loccare basta che faccia wait su semaforo di mutex
+int n = buffer [*cindex];
+*cindex = (*cindex +1)%buff
+xsem_post (mutex_consumers) --> per sbloccare il mutex (essendo un semaforo binario wait = lock , post = unlock
+xsem_post(free)
+
+if (n<0) break;
+if ( primo(n))
+{
+	quanti[i] += 1;
+	somma [i] += n;
+}
+------------
+-- figli consumatori e poi detach alla fine while
+
+//codice produttore
+legge da un file e i valori sono positivi
+allora scrivo nel buffer
+---
+xsem_wait(free)
+buffer[pindex] = n;
+pindex ( pindex+1 ) %buff
+xsem_post(items)
+
+---
+
+dopo di che segnalo la terminazione mettendo -1 nel buffer
+
+attesa terminazione figli con xwait
+
+xwait(NULL, line , file)
+tot_somma += somma[i]; --> calcolo la somma 
+tot_primi += quanti[i];
+
+ciclo for finale che calcola la somma
+
+infine detach shared memory
+=======
+Quando si scrivono programmi multithreads si usano altre funzioni di libreria ( tipo operazione matematica ecc)
+Nel manuale su ogni funzione è specificato se è possibile utilizzarla in un ambiente multithreads
+Threads safety--> MT safe
+
+Se dicesse:
+
+Threads safety--> MT-Unsafe race:drand48 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

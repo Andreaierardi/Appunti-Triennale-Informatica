@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<accounts>
+  <account username="marco96" password="12345" tipo="trainer"></account>
+  <account username="iera97" password="34567" tipo="atleta"></account>
+</accounts>

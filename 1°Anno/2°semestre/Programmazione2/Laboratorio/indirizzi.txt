@@ -1,0 +1,13 @@
+mario neri 22 corso_roma 43 15121 alessandria 0 2 1 2
+marco bianchi 61 via_garibaldi 43 15121 alessandria 1 2 0 2
+luigi rossi 63 piazza_san_carlo 43 10149 torino 2 2 0 1
+giovanni gialli 19 via_nizza 70 10149 torino 3 2 1 2
+andrea neri 30 corso_roma 43 15121 alessandria 4 2 1 2
+luigi viola 20 corso_svizzera 159 10149 torino 5 1 3 1
+maria verdi 40 via_garibaldi 44 15121 alessandria 6 3 2 3
+lorenza rossi 55 piazza_san_carlo 30 10149 torino 7 2 2 3
+marco neri 15 via_lagrange 70 10149 torino 8 2 3 5
+luca bianchi 75 corso_re_umberto 190 10149 torino 9 4 3 5
+diletta arancione 45 corso_regina_margherita 12 10149 torino 10 1 2 1
+giacomo blu 10 corso_re_umberto 230 10149  torino 11 1 9 2
+carlotta verdi 31 corso_roma 50 15121 alessandria 12 3 0 1

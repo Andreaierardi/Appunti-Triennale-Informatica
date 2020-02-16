@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<appelli>
+
+<appello data_appello="01/02/2019" ora_appello="9:00" inizio_prenotazioni="01/01/2019" fine_prenotazioni="25/01/2019" numero_aula="101" tipo="scritto" codice_appello="A01" codice_corso="150" cognome_docente="Codetta" verbalizzato="false" nome_corso="Ingegner128 del software" username_docente="daniele.codetta"/>
+<appello data_appello="15/02/2019" ora_appello="9:00" inizio_prenotazioni="15/01/2019" fine_prenotazioni="31/01/2019" numero_aula="101" tipo="scritto" codice_appello="A02" codice_corso="150" cognome_docente="Codetta" verbalizzato="false" nome_corso="Ingegner128 del software" username_docente="daniele.codetta"/>
+
+<appello data_appello="02/02/2019" ora_appello="10:00" inizio_prenotazioni="02/01/2019" fine_prenotazioni="21/01/2019" numero_aula="102" tipo="scritto" codice_appello="A03" codice_corso="124" cognome_docente="Terenz128ni" verbalizzato="false" nome_corso="Fondamenti, linguaggi e traduttori 1" username_docente="paolo.terenz128ni"/>
+<appello data_appello="16/02/2019" ora_appello="10:00" inizio_prenotazioni="16/01/2019" fine_prenotazioni="31/01/2019" numero_aula="102" tipo="scritto" codice_appello="A04" codice_corso="124" cognome_docente="Terenz128ni" verbalizzato="false" nome_corso="Fondamenti, linguaggi e traduttori 1" username_docente="paolo.terenz128ni"/>
+
+<appello data_appello="03/02/2019" ora_appello="14:00" inizio_prenotazioni="03/01/2019" fine_prenotazioni="24/01/2019" numero_aula="103" tipo="orale" codice_appello="A05" codice_corso="125" cognome_docente="Canonico" verbalizzato="false" nome_corso="Applicazioni Mobili" username_docente="massimo.canonico"/>
+<appello data_appello="18/02/2019" ora_appello="14:00" inizio_prenotazioni="18/01/2019" fine_prenotazioni="12/02/2019" numero_aula="103" tipo="orale" codice_appello="A06" codice_corso="125" cognome_docente="Canonico" verbalizzato="false" nome_corso="Applicazioni Mobili" username_docente="massimo.canonico"/>
+
+<appello data_appello="04/02/2019" ora_appello="11:00" inizio_prenotazioni="04/01/2019" fine_prenotazioni="26/01/2019" numero_aula="104" tipo="orale" codice_appello="A07" codice_corso="126" cognome_docente="Giordana" verbalizzato="false" nome_corso="Reti 2" username_docente="attilio.giordana"/>
+<appello data_appello="20/02/2019" ora_appello="11:00" inizio_prenotazioni="20/01/2019" fine_prenotazioni="10/02/2019" numero_aula="104" tipo="orale" codice_appello="A08" codice_corso="126" cognome_docente="Giordana" verbalizzato="false" nome_corso="Reti 2" username_docente="attilio.giordana"/>
+
+<appello data_appello="05/02/2019" ora_appello="15:00" inizio_prenotazioni="05/01/2019" fine_prenotazioni="28/01/2019" numero_aula="105" tipo="scritto" codice_appello="A09" codice_corso="128" cognome_docente="Portinale" verbalizzato="false" nome_corso="Intelligenza Artific128le" username_docente="luigi.portinale"/>
+<appello data_appello="25/02/2019" ora_appello="15:00" inizio_prenotazioni="25/01/2019" fine_prenotazioni="20/02/2019" numero_aula="105" tipo="scritto" codice_appello="A10" codice_corso="128" cognome_docente="Portinale" verbalizzato="false" nome_corso="Intelligenza Artific128le" username_docente="luigi.portinale"/>
+
+</appelli>
+
+
+
+

@@ -1,0 +1,17 @@
+.constant
+k 300
+.end-constant
+.main
+.var
+risultato
+.end-var
+	LDC_W k
+	BIPUSH 3
+	IREM
+	BIPUSH 0x30
+	IADD
+	OUT	
+	
+	HALT
+.end-main
+

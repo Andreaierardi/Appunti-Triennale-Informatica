@@ -1,0 +1,21 @@
+.method pincopallino(n1,n2)
+
+.var 
+risultato
+.end-var 
+      BIPUSH 0
+      ISTORE risultato
+L1: ILOAD n2
+      ILOAD n1
+      ISUB
+      IFLT fine
+      ILOAD risultato
+      ILOAD n1
+      IADD
+      ISTORE risultato
+      IINC n1 1
+      GOTO L1
+fine: ILOAD risultato
+       IRETURN
+.end-method
+

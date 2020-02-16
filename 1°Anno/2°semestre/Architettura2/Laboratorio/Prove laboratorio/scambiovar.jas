@@ -1,0 +1,31 @@
+.constant
+K 1024 // Questa costante si troverà in memoria all’indirizzo contenuto in CPP
+fico 256
+obbella 1
+k3 512
+k4 4086
+
+.end-constant
+.main
+.var
+x
+y
+.end-var
+
+BIPUSH 3
+ISTORE x 
+LDC_W K
+LDC_W fico
+LDC_W obbella
+LDC_W k3
+LDC_W k4
+
+ISTORE y 
+
+ILOAD x 
+ILOAD y
+ISTORE x 
+ISTORE y 
+HALT
+
+.end-main

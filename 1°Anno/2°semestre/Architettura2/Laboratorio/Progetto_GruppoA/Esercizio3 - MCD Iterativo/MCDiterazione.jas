@@ -1,0 +1,131 @@
+//realizzare il metodo MCD
+//anche in forma iterativa, seguendo il diagramma di flusso 
+//riportato nella pagina seguente. Verificare che i
+//risultati siano coincidenti (nello stesso main richiamare 
+//prima MCD ricorsivo e visualizzare il risultato, poi MCD
+//iterativo e visualizzare il risultato).
+
+
+.constant
+OBJREF 0x40
+.end-constant
+
+.main
+
+.var
+solution
+.end-var
+
+	LDC_W OBJREF
+	BIPUSH 50
+	BIPUSH 8
+	INVOKEVIRTUAL MCD
+	
+	BIPUSH 0x30
+	IADD
+	OUT
+	
+	HALT
+	
+.end-main
+
+.method MCD(a,b)
+
+.var
+risultato
+resto
+.end-var
+
+input:			// Carichiamo sullo stack 'a' 
+	ILOAD a
+	DUP 
+	IFLT neg_a	//Controlliamo che 'a' sia negativo
+
+input2:	ILOAD b		// Carichiamo sullo stack 'b'
+	DUP
+	IFLT neg_b	//Controlliamo che 'b' sia negativo
+
+input3:	ILOAD a		//Carichiamo i nuovi valore di 'a' e 'b'(se modificati) per prepararli alla IF_ICMPGT
+	ILOAD b
+	
+	GOTO a_mag_b
+
+neg_a:			//Trasformiamo 'a' in positivo caricando 0 sullo stack e sottraendo 'a'   (  0-(-a)= a  )
+
+	POP	
+	BIPUSH 0
+	ILOAD a
+	ISUB
+
+	ISTORE a		
+	
+	ILOAD a		//Salviamo il nuovo valore di 'a' e lo carichiamo sullo stack
+	GOTO input2
+
+	
+neg_b:			//Trasformiamo a in positivo caricando 0 sullo stack e sottraendo 'b'   (  0-(-b)= b  )
+	
+	POP
+	BIPUSH 0
+	ILOAD b
+	ISUB
+
+	ISTORE b
+	
+	ILOAD b		//Salviamo il nuovo valore di 'b' e lo carichiamo sullo stack
+	GOTO input3
+
+
+a_mag_b:			//Verifichiamo che 'a' sia maggiore di 'b'     ( a > b )
+
+	IF_ICMPGT b_control     //Se 'a' è maggiore di 'b' , controllo che b sia uguale a 0
+
+	GOTO swap		//Se 'b' è maggiore di 'a' vado all'etichetta swap
+
+
+swap:				//Scambio i valori di a e b e li ricarico sullo stack 
+ 	ISTORE a
+	ISTORE b
+	
+	ILOAD a
+	ILOAD b
+        GOTO b_control		//Finita la swap, controllo che b sia uguale a 0
+	
+b_control:			//Se b==0 si restituisce 'a' quindi salto a output_a
+	DUP 
+	IFEQ output_a		
+	GOTO resto		//Se 'b' è diverso da zero, vado alla label resto
+
+output_a:			//Carico 'a' sullo stack e lo salvo nella variabile risultato e vado alla label return
+	ILOAD a
+	ISTORE risultato
+	GOTO return
+		
+resto:				//Funzione di resto tra 'a'e 'b' ( a % b )
+	IREM 
+	DUP
+	IFEQ output_b		//Se il resto è uguale a 0 restituisco b, altrimenti vado alla label euclide
+	GOTO euclide		
+
+euclide:			//Carico b sullo stack e lo salvo in a ( a = b )
+	ILOAD b
+	ISTORE a
+	
+	ISTORE b	//Salvo il valore restiuito dall'instruzione IREM nella variabile 'b'   ( b = resto )
+	ILOAD a		//Ricarico i nuovi valori di 'a' e 'b' e ripeto il ciclo all'etichetta resto
+	ILOAD b
+	GOTO resto	
+	
+	
+output_b:		//Se il resto è uguale a 0 , il massimo comune divisore è 'b'    (MCD = b)
+	
+	ILOAD b	
+	ISTORE risultato	//Salvo il valore di 'b' nella variabile risultato e vado alla label return
+	GOTO return	
+	
+	
+return:
+	ILOAD risultato		//Carico sullo stack il valore della variabile risultato e ritorno il valore
+	IRETURN
+	
+.end-method

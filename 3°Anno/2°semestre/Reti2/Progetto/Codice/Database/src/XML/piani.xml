@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<piani>
+	<piano nomeUtente="gino" peso="50" serie="3" totRip="30" validita="invalid"/>
+
+
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="oooooreeeooo" peso="60" serie="3" totRip="30" validita="valid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="oooooreeeooo" peso="40" serie="5" totRip="20" validita="expired"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="gino" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="marco96" peso="20" serie="3" totRip="30" validita="invalid"/>
+<piano nomeUtente="iera97" peso="40" serie="3" totRip="10" validita="invalid"/>
+<piano nomeUtente="iera97" peso="30" serie="3" totRip="10" validita="invalid"/>
+<piano nomeUtente="iera97" peso="50" serie="3" totRip="30" validita="invalid"/>
+<piano nomeUtente="sss" peso="20" serie="10" totRip="30" validita="valid"/>
+<piano nomeUtente="paolo" peso="50" serie="5" totRip="50" validita="invalid"/>
+<piano nomeUtente="iera97" peso="32" serie="2" totRip="3" validita="invalid"/>
+<piano nomeUtente="iera97" peso="25" serie="2" totRip="15" validita="invalid"/>
+<piano nomeUtente="iera97" peso="25" serie="1" totRip="35" validita="invalid"/>
+<piano nomeUtente="marco96" peso="50" serie="2" totRip="9" validita="invalid"/>
+<piano nomeUtente="marco96" peso="45" serie="1" totRip="8" validita="invalid"/>
+<piano nomeUtente="marco96" peso="45" serie="1" totRip="8" validita="invalid"/>
+<piano nomeUtente="gigi" peso="20" serie="3" totRip="30" validita="valid"/>
+<piano nomeUtente="gino" peso="2" serie="2" totRip="30" validita="invalid"/>
+<piano nomeUtente="paolo" peso="2" serie="1" totRip="30" validita="invalid"/>
+<piano nomeUtente="paolo" peso="2" serie="1" totRip="3" validita="invalid"/>
+<piano nomeUtente="gino" peso="2" serie="1" totRip="3" validita="valid"/>
+<piano nomeUtente="paolo" peso="3" serie="2" totRip="2" validita="invalid"/>
+<piano nomeUtente="paolo" peso="2" serie="1" totRip="3" validita="valid"/>
+<piano nomeUtente="ciao" peso="2" serie="1" totRip="3" validita="invalid"/>
+<piano nomeUtente="ciao" peso="2" serie="2" totRip="3" validita="invalid"/>
+<piano nomeUtente="ciao" peso="2" serie="1" totRip="30" validita="invalid"/>
+<piano nomeUtente="ciao" peso="2" serie="3" totRip="30" validita="invalid"/>
+<piano nomeUtente="ciao" peso="2" serie="3" totRip="30" validita="invalid"/>
+<piano nomeUtente="ciao" peso="2" serie="1" totRip="3" validita="invalid"/>
+<piano nomeUtente="ciao" peso="10" serie="21" totRip="18" validita="invalid"/>
+<piano nomeUtente="marco96" peso="20" serie="3" totRip="30" validita="valid"/>
+<piano nomeUtente="iera97" peso="20" serie="2" totRip="30" validita="invalid"/>
+<piano nomeUtente="ciao" peso="10" serie="20" totRip="505" validita="valid"/>
+<piano nomeUtente="cia" peso="2" serie="2" totRip="30" validita="valid"/>
+<piano nomeUtente="iera97" peso="15" serie="3" totRip="20" validita="invalid"/>
+<piano nomeUtente="iera97" peso="20" serie="2" totRip="30" validita="valid"/>
+</piani>

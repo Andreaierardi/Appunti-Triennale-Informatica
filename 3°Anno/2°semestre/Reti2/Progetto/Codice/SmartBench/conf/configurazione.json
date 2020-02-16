@@ -1,0 +1,14 @@
+{
+
+	"time": "15000",
+
+	"sensori": 
+	[
+
+		"SE_01=Bracciale",
+		"SE_02=Pesi",
+   		"SE_03=Bilanciere"
+
+	]
+
+}

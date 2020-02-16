@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<corsi>
+
+
+<corso nome="luigi.portinale" codice="123" anno="3"  studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="paolo.terenziani" codice="124" anno="3"  studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="massimo.canonico" codice="125" anno="2"  studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="attilio.giordana" codice="126" anno="3"  studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="paolo.paiuzzi" codice="127" anno="2" studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="gianluca" codice="128" anno="2" studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="20021037" codice="129" anno="3" studenti="10" CdL="Informatica"  cognome_docente="portinale"/>
+<corso nome="20022162" codice="130" anno="2" studenti="10" CdL="Informatica"  cognome_docente="portinale"/>
+<corso nome="20020572" codice="131" anno="1" studenti="10" CdL="Informatica" cognome_docente="portinale"/>
+<corso nome="20019238" codice="132" anno="3" studenti="10" CdL="Informatica"  cognome_docente="portinale"/>
+<corso nome="20018222" codice="133" anno="3" studenti="10" CdL="Informatica"  cognome_docente="portinale"/>
+
+</corsi>
+

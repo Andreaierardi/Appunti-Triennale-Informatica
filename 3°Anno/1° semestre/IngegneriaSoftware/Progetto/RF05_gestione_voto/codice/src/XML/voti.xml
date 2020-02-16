@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<voti>
+<voto valore="25" accettato="true" data_verbale="05/02/2019" data_accettazione="10/02/2019" matricola="20021037" codice_appello="A10" codice_corso="123" nome_corso="intelligenza Artificiale"/>
+<voto valore="27" accettato="false" data_verbale="04/02/2019" data_accettazione="" matricola="20021037" codice_appello="A06" codice_corso="126" nome_corso="Reti 2"/>
+<voto valore="19" accettato="false" data_verbale="04/02/2019" data_accettazione="" matricola="20021032" codice_appello="A06" codice_corso="126" nome_corso="Reti 2"/>
+<voto valore="30" accettato="true" data_verbale="04/02/2019" data_accettazione="20/02/2019" matricola="20018222" codice_appello="A06" codice_corso="126" nome_corso="Reti 2"/>
+<voto valore="20" accettato="false" data_verbale="05/02/2019" data_accettazione="" matricola="20022162" codice_appello="A10" codice_corso="123" nome_corso="intelligenza Artificiale"/>
+<voto valore="26" accettato="true" data_verbale="16/02/2019" data_accettazione="10/03/2019" matricola="20018222" codice_appello="A07" codice_corso="124" nome_corso="Fondamenti, linguaggi e traduttori 1"/>
+
+<voto valore="27" accettato="false" data_verbale="04/02/2019" data_accettazione="10/03/2019" matricola="20020572" codice_appello="A06" codice_corso="126" nome_corso="Reti 2"/>
+
+<voto valore="28" accettato="true" data_verbale="05/02/2019" data_accettazione="10/02/2019" matricola="20019238" codice_appello="A10" codice_corso="123" nome_corso="intelligenza Artificiale"/>
+<voto valore="18" accettato="false" data_verbale="18/02/2019" data_accettazione="" matricola="20018222" codice_appello="A10" codice_corso="125" nome_corso="Applicazioni Mobili"/>
+<voto valore="29" accettato="true" data_verbale="05/02/2019" data_accettazione="05/03/2019" matricola="20020572" codice_appello="A10" codice_corso="123" nome_corso="intelligenza Artificiale"/>
+<voto valore="23" accettato="false" data_verbale="18/02/2019" data_accettazione="" matricola="20020572" codice_appello="A09" codice_corso="125" nome_corso="Applicazioni Mobili"/>
+<voto valore="27" accettato="true" data_verbale="16/02/2019" data_accettazione="15/03/2019" matricola="20019238" codice_appello="A07" codice_corso="124" nome_corso="Fondamenti, linguaggi e traduttori 1"/>
+<voto valore="25" accettato="true" data_verbale="18/02/2019" data_accettazione="20/02/2019" matricola="20021037" codice_appello="A09" codice_corso="125" nome_corso="Applicazioni Mobili"/>
+<voto valore="27" accettato="true" data_verbale="16/02/2019" data_accettazione="10/03/2019" matricola="20021037" codice_appello="A07" codice_corso="124" nome_corso="Fondamenti, linguaggi e traduttori 1"/>
+<voto valore="29" accettato="true" data_verbale="05/02/2019" data_accettazione="01/04/2019" matricola="20019238" codice_appello="A10" codice_corso="123" nome_corso="intelligenza Artificiale"/>
+
+
+</voti>

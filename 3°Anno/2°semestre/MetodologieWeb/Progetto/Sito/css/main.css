@@ -1,0 +1,558 @@
+/* Footer */
+section
+{
+  padding: 60px 0;
+}
+
+#hidestart
+{
+  display: none;
+}
+#backbutton
+{
+  text-decoration: none; /* no underline */
+
+  border: 1px solid navy;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  float:left;
+  margin-left: 2rem;
+  background-color: #84a9bf;
+}
+#quantity
+{
+  width:30px;
+  text-align:center;
+}
+section .section-title
+{
+  text-align: center;
+  color: #007b5e;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+#footer
+{
+  background: #f54f31 !important;
+}
+
+#footer h5
+{
+  padding-left: 10px;
+  border-left: 3px solid #eeeeee;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  color:#ffffff;
+}
+#footer a
+{
+  color: #ffffff;
+  text-decoration: none !important;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+#footer ul.social li
+{
+  padding: 3px 0;
+}
+#footer ul.social li a i
+{
+  margin-right: 5px;
+  font-size:25px;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+}
+#footer ul.social li:hover a i
+{
+  font-size:30px;
+  margin-top:-10px;
+}
+#footer ul.social li a,
+#footer ul.quick-links li a
+{
+  color:#ffffff;
+}
+#footer ul.social li a:hover{
+  color:#eeeeee;
+}
+#footer ul.quick-links li{
+  padding: 3px 0;
+  -webkit-transition: .5s all ease;
+  -moz-transition: .5s all ease;
+  transition: .5s all ease;
+}
+#footer ul.quick-links li:hover{
+  padding: 3px 0;
+  margin-left:5px;
+  font-weight:700;
+}
+#footer ul.quick-links li a i{
+  margin-right: 5px;
+}
+#footer ul.quick-links li:hover a i {
+  font-weight: 700;
+}
+
+@media (max-width:767px){
+  #footer h5 {
+    padding-left: 0;
+    border-left: transparent;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+  }
+}
+
+/* CARRELLO */
+.carrello >.carrello_header
+{
+  text-align: center;
+  border: 1px solid lightgray;
+  margin-bottom: 2rem;
+}
+
+.carrello > .carrello_list > .outcarrello
+{
+  margin-left: 2rem;
+  text-align: center;
+}
+
+.carrello >.carrello_list
+{
+  border: 1px solid lightgray;
+  padding: 1rem 1rem 0rem 0rem;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.carrello >.carrello_list li
+{
+  padding-left: 0;
+  list-style-type: none;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+
+}
+.carrello >.carrello_list select
+{
+  width: 30%;
+}
+.media >.row
+{
+  width: 100%;
+
+}
+.media >.row >.column:first-child
+{
+  border-right: 1px solid #ccc;
+  margin-right: 1rem;
+}
+.media >.row >.column p
+{
+  margin-bottom: 0px;
+}
+.media >.row >.column button
+{
+  margin-bottom: 1rem;
+}
+.media >.row >.column
+{
+
+  width: 40%;
+}
+
+.carrello a
+{
+  text-decoration: none;
+  border:0;
+  margin:0;
+  padding: 0;
+  color: inherit; /* blue colors for links too */
+}
+.carrello >.carrello_list h5
+{
+  margin-left: 10%;
+  color: #16829e;
+}
+
+
+.media > .row > .column  img
+{
+  width: 80%;
+  height: 80%;
+  max-width: 150px;
+  max-height: 150px;
+
+}
+/* === FINE CARRELLO === */
+
+/* Remove the jumbotron's default bottom margin */
+.jumbotron {
+  margin-bottom: 0;
+  padding: 0 ;
+  color: #f54f31;
+  background: rgba(0,0,0,0);
+}
+
+h1
+{
+  margin : 10px 10px 10px 10px;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+#it
+{
+  width:100%;
+  height:30rem;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px)
+{
+  .carousel-caption {
+    display: none;
+  }
+}
+.card
+{
+  display: flex;
+}
+.main
+{
+  text-align: center;
+  border : 1px groove  black;
+
+}
+
+/*
+.prodotto > row > .col-sm-8 > .descrizione_prodotto
+{
+float:right;
+width: 50%;
+}*/
+.prodotto > .recensioni> .rec
+{
+  border-bottom: 1px double gray;
+  border-radius: 3%;
+  padding-bottom: 1rem;
+  padding-top: 2rem;
+}
+.prodotto > .recensioni> .scrivi_recensione
+{
+  margin-top: 2rem;
+}
+.prodotto > .recensioni> .scrivi_recensione textarea, button
+{
+  margin-top: 1rem;
+}
+
+.prodotto > .recensioni> .rec p
+{
+  word-break: break-all;
+
+}
+.prodotto > .recensioni h1
+{
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+}
+.prodotto > .recensioni
+{
+  margin: 3rem 10rem 3rem 10rem;
+  padding: 1rem 1rem 1rem 1rem;
+  border: 1px solid black;
+  margin: auto;
+  margin-bottom: 3rem;
+  margin-left: 0;
+  width: 70%;
+}
+.prodotto > row > .col-sm-12
+{
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#count_cart p
+{
+  margin:0;
+  padding: 0;
+}
+#count_cart
+{
+  background-color: white;
+  color: #f54f31;
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  vertical-align: super;
+  text-align: center;
+  font-size: 0.8rem;
+  padding-top: 0;
+  padding: 0;
+
+}
+.prodotto > row > .col-sm-12
+{
+  width: 90%;
+  display: flex;
+  margin: 3rem 3rem 3rem 3rem;
+}
+.prodotto > row > .col-sm-12 > .nome_prodotto
+{
+
+  width: 500%;
+
+}
+.prodotto > row > .col-sm-12 > .nome_prodotto >p
+{
+  text-align: left;
+}
+.prodotto > row > .col-sm-12 > .nome_prodotto >h1
+{
+  text-align: center;
+
+  margin-left: 5rem;
+  text-align: center;
+}
+.prodotto > row > .col-sm-12 > img
+{
+  float: left;
+  width: 100%;
+  height: 100%;
+  max-width: 30%;
+  max-height: 30%;
+  margin-right: 5rem;
+  border: 2px solid lightgray;
+}
+
+/*DATI DEL PRODOTTO */
+.prodotto > .dati_prodotto > .card-deck
+{
+  width: 100%;
+  margin: auto;
+}
+.prodotto > .dati_prodotto > .card-deck > .card
+{
+
+  background-color: white;
+  width: 100%;
+  border:0;
+  text-align: center;
+  margin-left: 2rem;
+  margin-right: 0;
+}
+.prodotto > .dati_prodotto > .card-deck > .card:last-child
+{
+  border-left: 1px double #f54f31;
+  margin-right: 2rem;
+  margin-left: 0;
+}
+.prodotto > .dati_prodotto > .card-deck >.card > .card-header
+{
+  width: 100%;
+  text-align: center;
+  background-color: #f54f31;
+  border: 1px solid gray;
+  border-right: 0;
+  max-height: 5rem;
+}
+.prodotto > .dati_prodotto > .card-deck>.card li , .dati_prodotto > .card li
+{
+  background-color: white;
+  font-size: 1.5rem;
+  text-align: left;
+  border-color: #f54f31;
+  width: 100%;
+
+}
+
+.prodotto > .dati_prodotto
+{
+  border: 1px double lightgray;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  border-right: 0;
+  border-left: 0;
+}
+/*=================
+SFONDO
+
+*/
+.main
+{margin-bottom:  3rem;
+}
+
+#card-title
+{
+  text-align: center;
+  border: 1px solid black;
+}
+
+.sfondo > row > .col-sm-6 > .card-deck> .card
+{
+  display: inline;
+  max-height: 48rem;
+  overflow: hidden;
+  padding-bottom: 3rem;
+}
+
+.sfondo > row > .col-sm-6 > .card-deck> .card > a >img
+{
+
+
+  padding: 1rem 1rem 1rem 1rem;
+  margin-left: 5%;
+  width: 90%;
+  height: 90%;
+  transition: transform .2s; /* Animation */
+  opacity: 0.6;
+  display: inline;
+}
+
+.sfondo > row > .col-sm-6 > .card-deck> .card p
+{
+  max-height: 7.9rem;
+  text-align: justify;
+  overflow: hidden;
+
+}
+
+
+.sfondo > row > .col-sm-6 > .card-deck> .card a img:hover
+{
+  transform: scale(1.1);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+  opacity: 1;
+}
+
+.sfondo > row > .col-sm-6 > .card-deck > .card> a
+{
+  color: black;
+  text-decoration: none;
+}
+
+.sfondo
+{
+  padding-bottom: 5rem;
+  background-color: white;
+}
+
+/*
+Register form
+*/
+.contaner.register-form
+{
+  border: 3px solid black;
+}
+
+.sfondo > row > .col-sm-6
+{
+  background-color: white;
+  padding-bottom: 1rem;
+  margin: auto;
+
+}
+
+.sfondo > row > .col-sm-4
+{
+
+  margin: auto;
+}
+.sfondo > row > .col-sm-2
+{
+  margin-left: 30rem;
+  text-align: left;
+}
+.sfondo > row > .filter
+{
+  float:left;
+  margin: auto;
+}
+
+#logo > h1
+{
+  display:inline;
+}
+
+#logo >a img
+{
+  width: 70px;
+  height:70px;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin: 10px 10px 10px 10px;
+}
+img.card-img-top
+{
+  height: auto;
+  max-height: 350px;
+}
+/* REGISTRATION CSS*/
+.register-form
+{
+  width: 80%;
+  padding-top: 3em;
+}
+.form-content
+{
+  height: 50%;
+}
+.form-group
+{
+  /*  margin: 5px 5px 5px 5px;*/
+  text-align: center;
+}
+.col-md-8
+{
+  border-right: 1px ridge black;
+}
+.note
+{
+  text-align: center;
+  height: 80px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: -webkit-linear-gradient(left, #f54f31, #8811c5);
+  color: #fff;
+  font-weight: bold;
+  line-height: 80px;
+  font-size: 30px;
+}
+.form-content
+{
+  padding: 5%;
+  border: 1px solid #ced4da;
+  margin-bottom: 8%;
+}
+.form-control
+{
+  margin-right: 2px;
+  border-radius:1.5rem;
+  width: 100%;
+}
+
+.btnSubmit
+{
+  border:none;
+  border-radius:1.5rem;
+  padding: 1%;
+  width: 20%;
+  cursor: pointer;
+  background: #f54f31;
+  color: #fff;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
+}

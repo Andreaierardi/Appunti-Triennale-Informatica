@@ -1,0 +1,5 @@
+Orsi Bruno 100137 Logica 3 30
+Rossi Mario 100123 Algoritmi1 9 24
+Bravi Barbara 100145 Programmazione2 9 21
+Rossi Mario 100123 Programmazione2 9 26
+Rossi Mario 100123 Logica 3 22

@@ -1,0 +1,157 @@
+html {
+  height: 100%;
+  margin: auto;
+}
+
+.jumbotron > .container
+{
+  padding: 1rem 1rem 1rem 1rem;
+}
+.card.text-white.bg-info.mb-3
+{
+	width: 80%;
+	margin: auto;
+	background-color: white;
+}
+.card.text-white.bg-info.mb-3 > .list-group > li
+{
+	font-size: 20px;
+	text-align:left;
+  padding-top: 1rem;
+  border-bottom: thin double lightgray;
+   border-radius: 8px;
+}
+
+#valuehigh
+{
+	font-size: 30px;
+	text-align:center;
+	float: right;
+	border: 0.5px double navy;
+	margin-right:50%;
+	padding:0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.card.text-white.bg-info.mb-3 ul
+{
+	background-color: white;
+	color:black;
+	font-size: 15px;
+	padding: 1rem 1rem 1rem 1rem;
+}
+
+.jumbotron
+{
+	width:80%;
+	margin: 3rem 3rem 3rem 3rem;
+	padding: 3rem 3rem 3rem 3rem;
+	margin-bottom:0;
+	border: 1px solid navy;
+}
+#write
+{
+  font-color:white;
+}
+.container > .bottoni
+{
+	width: auto;
+}
+.container > .bottoni > input
+{
+		font-size: 20px;
+    margin-bottom:  1rem;
+}
+.container
+{
+
+	padding: 3rem 0rem 0rem 0rem;
+	background-color:#F0F8FF;
+}
+
+h1{
+  color: navy;
+  text-align: center;
+}
+
+.checker
+{
+  margin:3rem 3rem 3rem 3rem;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.container
+{  text-align: center;
+
+  margin: 0 auto; /* Center it */
+}
+.container  img
+{
+background-position:bottom;
+ width: 100%;
+ height:300px;
+
+}
+
+.container .content h1 {
+  font-family: verdana;
+  padding: 10px; /* Some padding */
+  width: 94%;
+}
+.scelta
+{
+  margin:auto;
+  margin-bottom: 5rem;
+  width: 50%;
+  left: auto;
+}
+
+.jumbotron > .buttoni> li
+{
+	display:block;
+  margin: 1rem 1rem 1rem 1rem;
+}
+#form-atleta, #form-trainer
+{
+  display : none;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+}
+form{
+    width:50%;
+    margin:0 auto;
+}
+
+#result
+{
+  margin-top: 2rem;
+	display: none;
+}
+
+/*
+
+  display: none;
+  padding: 5rem 5rem 5rem 5rem;
+  margin: 5rem 5rem 5rem 5rem;ù
+  font-size: 30px;
+}
+.result li
+{
+  background-color:lightgray;
+  border: 1px double black;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.result li:nth-child(even)
+{
+  background-color:white;
+
+}*/
+
+.container {
+  width: 500px;
+  clear: both;
+}
+#newpiano input, #lastpiano input,#ins input{
+  border: 2px solid #008CBA;
+}
+.container input {
+  width: 100%;
+
+}

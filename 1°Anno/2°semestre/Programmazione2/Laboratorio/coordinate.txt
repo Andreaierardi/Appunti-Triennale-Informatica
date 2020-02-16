@@ -1,0 +1,3 @@
+Coordinata 1 è: (50,60)
+Coordinata 2 è: (30,40)
+Coordinata 3 è: (10,20)

@@ -1,0 +1,66 @@
+/* < Andrea Ierardi 20018785 > */
+html
+{
+  font-family: Arial;
+}
+
+#banner, #w3c
+{
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: #3f3f3f;
+  color:  white;
+  font-weight: bold;
+  margin: auto;
+
+}
+
+#main
+{
+  margin: auto;
+  text-align: center;
+  color:#3f3f3f;
+}
+p, legend
+{
+  color: #787876;
+}
+form
+{
+  margin: auto;
+  width: 22rem;
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
+}
+table
+{
+  width: 80%;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+  margin:auto;
+  margin-bottom: 1.5rem;
+
+}
+#testotabella
+{
+  margin-bottom: 0px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td, th {
+  padding: 0.3rem 1rem 0.3rem 1rem;
+}
+
+th.left, td.left
+{
+  text-align: left;
+}
+th.centro, td.centro
+{
+  text-align: center;
+}
+th.right, td.right
+{
+  text-align: right;
+}

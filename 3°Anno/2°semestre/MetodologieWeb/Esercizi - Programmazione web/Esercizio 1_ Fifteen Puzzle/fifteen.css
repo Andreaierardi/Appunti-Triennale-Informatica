@@ -1,0 +1,30 @@
+/*<Andrea, Ierardi, 20018785> */
+body 
+{   
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+        margin: auto;
+
+}
+
+#puzzlearea
+{
+    margin: auto;
+    width: 400px;
+    height: 400px;
+}
+
+#c1, #c2, #c3, #c4, #c5, #c6, #c7, #c8, #c9, #c10, #c11, #c12, #c13, #c14, #c15, #c16
+{
+    vertical-align: middle;
+    font-weight: bold;
+    float: left;
+    font-size: 40px;
+    border: 5px solid black;
+    width: 90px;
+    height: 90px;
+    background-image: url(background.jpg);
+
+}
+
