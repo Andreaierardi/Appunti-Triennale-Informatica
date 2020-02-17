@@ -1,7 +1,8 @@
 <h1 style="text-align:center"> Appunti Laurea Triennale Informatica - UPO </h1>
 <p> Appunti Laurea triennale Informatica - Università del Piemonte Orientale - Alessandria </p>
 
-<p> <strong>Autori </strong>: Emanuele Baracco, Simone Caggese, Alessio Famiani, Edoardo Favorido, Andrea Ferrari, Andrea Ierardi, Deian Imbrea. </p>
+## Autori
+Emanuele Baracco, Simone Caggese, Alessio Famiani, Edoardo Favorido, Andrea Ferrari, Andrea Ierardi, Deian Imbrea. </p>
  
 
 ## Anni 2016 - 2019
