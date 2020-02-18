@@ -1,4 +1,5 @@
-<h1 style="text-align:center"> Appunti Laurea Triennale Informatica - UPO </h1>
+
+<h1 align="center"> Appunti Laurea Triennale Informatica - UPO </h1>
 <p> Appunti Laurea triennale Informatica - Università del Piemonte Orientale - Alessandria </p>
 
 # Contributors
