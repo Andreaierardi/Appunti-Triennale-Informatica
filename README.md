@@ -1,8 +1,24 @@
 
-<h1 align="center"> Appunti Laurea Triennale Informatica - UPO </h1>
+<h1 align="center"> Laurea Triennale Informatica <br> :closed_book: Appunti e Progetti :computer:</h1>
+
+## Università del Piemonte Orientale :mortar_board:
 <p> Appunti Laurea triennale Informatica - Università del Piemonte Orientale - Alessandria </p>
 
-# Contributors
+<h3 align="center" font-size="300px"> Andrea Ierardi <h3>
+  <a href="https://www.linkedin.com/in/andreaierardi/" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/gVE0j.png" alt="linkedin"> LinkedIn
+  </a> &nbsp; 
+  <a href="https://github.com/Andreaierardi" rel="nofollow noreferrer">
+    <img src="https://i.stack.imgur.com/tskMh.png" alt="github"> Github
+  </a> &nbsp; 
+ <a href="https://andreaierardi.github.io/" rel="nofollow noreferrer">
+    <img src="https://github.com/Andreaierardi/Master-DataScience-Notes/blob/master/img/website.svg" width=15>
+   Website
+  </a>
+<br>
+<br> 
+ 
+# Contributors :busts_in_silhouette:
 Emanuele Baracco, Simone Caggese, Alessio Famiani, Edoardo Favorido, Andrea Ferrari, Andrea Ierardi, Deian Imbrea. </p>
  
 
