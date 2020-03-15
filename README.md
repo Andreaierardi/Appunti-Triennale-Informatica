@@ -11,7 +11,7 @@
   <a href="https://github.com/Andreaierardi" rel="nofollow noreferrer">
     <img src="https://i.stack.imgur.com/tskMh.png" alt="github"> Github
   </a> &nbsp; 
- <a href="https://andreaierardi.github.io/" rel="nofollow noreferrer">
+ <a href="https://ierardiandrea.com/" rel="nofollow noreferrer">
     <img src="https://github.com/Andreaierardi/Master-DataScience-Notes/blob/master/img/website.svg" width=15>
    Website
   </a>
